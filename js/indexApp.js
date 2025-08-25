@@ -132,7 +132,8 @@ class IndexApp extends BaseApp {
                     localStorage.setItem("filteredData", JSON.stringify([]));
 
                     // New participants should go to tutorial first
-                    window.location.href = "tutorial.html";
+                    // window.location.href = "tutorial.html";
+                    window.location.href = "survey.html";
                 },
                 langManager.getText('ui.creating_profile') || 'Creating profile...'
             );

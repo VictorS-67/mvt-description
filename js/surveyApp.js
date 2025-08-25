@@ -271,7 +271,7 @@ class SurveyApp extends BaseApp {
         localStorage.setItem("surveyCompleted", "true");
         
         // Redirect to reasoning page
-        window.location.href = "reasoning.html";
+        // window.location.href = "reasoning.html";
     }
 
     updateAudioStatusText() {
@@ -816,7 +816,7 @@ class SurveyApp extends BaseApp {
         localStorage.setItem("surveyCompleted", "true");
         
         // Redirect to reasoning page
-        window.location.href = "reasoning.html";
+        //window.location.href = "reasoning.html";
     }
 
     stayOnSurveyPage() {

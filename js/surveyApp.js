@@ -15,19 +15,7 @@ class SurveyApp extends BaseApp {
     }
 
     initializeElements() {
-               // Display existing onomatopoeia data for current video
-        const relevantData = filteredData.filter(item => 
-            item["video"] === currentVideoName && item["movement"] !== "null"
-        );
-
-        if (!relevantData.length) {
-            recordMessage = langManager.getText('survey.no_saved_onomatopoeia');
-        } else {
-            relevantData.forEach(item => {
-                const audioIcon = item["hasAudio"] === 1 ? " 🎵" : "";
-                recordMessage += `-"${item["movement"]}"${audioIcon} from ${item["startTime"]} to ${item["endTime"]};<br>`;
-            });
-        }s = {
+        this.elements = {
             nameDisplay: DOMUtils.getElement("nameDisplay"),
             buttonVisibility: DOMUtils.getElement("buttonVisibility"),
             inputVisibility: DOMUtils.getElement("inputVisibility"),
@@ -649,9 +637,9 @@ class SurveyApp extends BaseApp {
             });
         }
 
-        // Display existing onomatopoeia data for current video
+        // Display existing movement data for current video
         const relevantData = filteredData.filter(item => 
-            item["video"] === currentVideoName && item["onomatopoeia"] !== "null"
+            item["video"] === currentVideoName && item["movement"] !== "null"
         );
 
         if (!relevantData.length) {
@@ -659,7 +647,7 @@ class SurveyApp extends BaseApp {
         } else {
             relevantData.forEach(item => {
                 const audioIcon = item["hasAudio"] === 1 ? " 🎵" : "";
-                recordMessage += `-"${item["onomatopoeia"]}"${audioIcon} from ${item["startTime"]} to ${item["endTime"]};<br>`;
+                recordMessage += `-"${item["movement"]}"${audioIcon} from ${item["startTime"]} to ${item["endTime"]};<br>`;
             });
         }
 

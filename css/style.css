@@ -1379,3 +1379,8 @@ body {
     border: none;
 }
 
+/* Hide audio recording section */
+#audioSection {
+    display: none !important;
+}
+

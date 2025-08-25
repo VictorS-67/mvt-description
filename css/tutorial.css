@@ -1,0 +1,425 @@
+/* Tutorial-specific CSS styles */
+
+/* Tutorial overlay */
+.tutorial-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent; /* No dimming background */
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Allow clicks through the overlay background */
+}
+
+.tutorial-overlay.hidden {
+    display: none;
+}
+
+/* Tutorial progress indicator */
+.tutorial-progress {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+    pointer-events: auto; /* Allow clicks on the progress indicator */
+}
+
+.progress-bar {
+    width: 200px;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.progress-text {
+    font-weight: 500;
+    color: #333;
+}
+
+/* Tutorial bubble */
+.tutorial-bubble {
+    position: absolute;
+    background: white;
+    border: 3px solid #007acc;
+    border-radius: 20px;
+    padding: 25px;
+    max-width: 350px;
+    min-width: 280px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    z-index: 10002;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    animation: bubbleAppear 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: auto; /* Ensure the bubble itself can be clicked */
+}
+
+@keyframes bubbleAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.bubble-content {
+    position: relative;
+}
+
+.bubble-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #007acc;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.bubble-text {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.bubble-instruction {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #007acc;
+    background-color: #f0f8ff;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border-left: 3px solid #007acc;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.bubble-instruction:empty {
+    display: none;
+}
+
+.bubble-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.btn-tutorial {
+    background: #007acc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-tutorial:hover {
+    background: #005a99;
+    transform: translateY(-1px);
+}
+
+.btn-tutorial:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-tutorial-secondary {
+    background: transparent;
+    color: #666;
+    border: 2px solid #ddd;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.btn-tutorial-secondary:hover {
+    background: #f5f5f5;
+    border-color: #bbb;
+}
+
+/* Tutorial arrows */
+.bubble-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 15px solid transparent;
+}
+
+.tutorial-bubble.arrow-top .bubble-arrow {
+    bottom: 100%;
+    left: 50%;
+    margin-left: -15px;
+    border-bottom-color: #007acc;
+}
+
+.tutorial-bubble.arrow-bottom .bubble-arrow {
+    top: 100%;
+    left: 50%;
+    margin-left: -15px;
+    border-top-color: #007acc;
+}
+
+.tutorial-bubble.arrow-left .bubble-arrow {
+    right: 100%;
+    top: 50%;
+    margin-top: -15px;
+    border-right-color: #007acc;
+}
+
+.tutorial-bubble.arrow-right .bubble-arrow {
+    left: 100%;
+    top: 50%;
+    margin-top: -15px;
+    border-left-color: #007acc;
+}
+
+.tutorial-bubble.arrow-top-left .bubble-arrow {
+    bottom: 100%;
+    left: 30px;
+    border-bottom-color: #007acc;
+}
+
+.tutorial-bubble.arrow-top-right .bubble-arrow {
+    bottom: 100%;
+    right: 30px;
+    border-bottom-color: #007acc;
+}
+
+.tutorial-bubble.arrow-bottom-left .bubble-arrow {
+    top: 100%;
+    left: 30px;
+    border-top-color: #007acc;
+}
+
+.tutorial-bubble.arrow-bottom-right .bubble-arrow {
+    top: 100%;
+    right: 30px;
+    border-top-color: #007acc;
+}
+
+/* Element highlighting */
+.tutorial-highlight {
+    position: relative;
+    z-index: 9999;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    animation: tutorialPulse 2s infinite;
+}
+
+@keyframes tutorialPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(0, 122, 204, 0.3);
+    }
+}
+
+.tutorial-highlight::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: rgba(0, 122, 204, 0.1);
+    border-radius: 12px;
+    z-index: -1;
+}
+
+/* 
+.tutorial-active .container > *:not(.tutorial-highlight) {
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+.tutorial-active .header {
+    opacity: 1 !important;
+}
+
+.tutorial-active .tutorial-progress {
+    opacity: 1 !important;
+}
+*/
+
+/* Action completion indicators */
+.tutorial-step-complete::after {
+    content: '✓';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 10003;
+}
+
+/* Required action indicator */
+.tutorial-required-action .bubble-title::after {
+    content: '*';
+    color: #ff4444;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+/* Tutorial completion overlay */
+.tutorial-completion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10004;
+    pointer-events: auto; /* This modal should block interactions */
+}
+
+.completion-content {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    pointer-events: auto; /* Ensure the content can be clicked */
+}
+
+.completion-content h2 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.completion-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.btn-start-survey {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.btn-start-survey:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* Video button completion states (matching survey.html styles) */
+.video-button.completed {
+    background-color: #10b981 !important; /* Success green */
+    color: #ffffff !important;
+    border-color: #10b981 !important;
+}
+
+.video-button.completed:hover {
+    background-color: #059669 !important; /* Darker green on hover */
+    border-color: #059669 !important;
+}
+
+.video-button.no-onomatopoeia {
+    background-color: #f59e0b !important; /* Warning yellow/orange */
+    color: #ffffff !important;
+    border-color: #f59e0b !important;
+}
+
+.video-button.no-onomatopoeia:hover {
+    background-color: #d97706 !important; /* Darker orange on hover */
+    border-color: #d97706 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .tutorial-bubble {
+        max-width: 300px;
+        min-width: 250px;
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    .tutorial-progress {
+        font-size: 12px;
+        padding: 8px 16px;
+        gap: 10px;
+    }
+    
+    .progress-bar {
+        width: 150px;
+        height: 6px;
+    }
+    
+    .bubble-title {
+        font-size: 16px;
+    }
+    
+    .bubble-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tutorial-bubble {
+        max-width: 280px;
+        min-width: 220px;
+        padding: 16px;
+    }
+    
+    .bubble-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .btn-tutorial,
+    .btn-tutorial-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}

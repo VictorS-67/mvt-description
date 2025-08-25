@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movement to Onomatopoeia - Participant Login</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <!-- External Libraries -->
+    
+    
+</head>
+
+    
+<body class="bg-gray-100">
+    
+    <div class="container">
+        <!-- Language selector at top of container, aligned right -->
+        <div class="language-selector-container">
+            <select id="languageSelect" class="language-dropdown">
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+            </select>
+        </div>        
+        <form id="emailForm" class="input-group">
+            <label id="emailLabel" for="emailInput">Your email address:</label>
+            <input type="email" id="emailInput"
+             name="emailInput" placeholder="Enter your email address"
+             required>
+            <button type="submit" id="nextButton" class="button">Next</button>
+        </form>
+
+        <!-- Introductory text -->
+        <div id="introSection" style="display: none;">
+            <div id="introText" class="intro-text">
+                <h2 id="welcomeTitle">Welcome to the Movement to Onomatopoeia Study</h2>
+                <p>
+                    <span id="welcomeIntro">Loading...</span>
+                    <br>
+                    <span id="welcomeDescription">Loading...</span>
+                </p>
+                
+                <h3 id="instructionsTitle">What you'll do:</h3>
+                <ul id="instructionsList">
+                    <li>Loading...</li>
+                </ul>
+
+                <p id="noOnomatopoeia">Loading...</p>
+                
+                <p>
+                    <span id="aboutOnomatopoeia">Loading...</span>
+                    <strong id="intuitionEmphasis">Loading...</strong>
+                </p>
+            </div>
+        </div>
+        
+        <form id="participantForm" class="input-group" style="display: none;">
+            <h2 id="profileTitle">Welcome! Please complete your profile:</h2>
+            <label id="nameLabel" for="nameInput">Your name/pseudo:</label>
+            <input type="text" id="nameInput" name="nameInput" 
+                   placeholder="Enter your name or pseudonym" 
+                   required minlength="2" maxlength="50">
+            
+            <label id="ageLabel" for="ageInput">Your age:</label>
+            <input type="number" id="ageInput" name="ageInput" 
+                   placeholder="Enter your age" 
+                   min="1" max="120" required>
+
+            <label id="genderLabel" for="genderInput">Your gender:</label>
+            <select id="genderInput" name="genderInput" required>
+                <option value="">Please select...</option>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+                <option value="Other">Other</option>
+                <option value="Prefer not to say">Prefer not to say</option>
+            </select>
+
+            <label id="movementPracticeLabel" for="movementPracticeInput">Your movement practice (optional):</label>
+            <input type="text" id="movementPracticeInput" name="movementPracticeInput" 
+                   placeholder="e.g., dance, somatics, manual therapy, movement analysis..." 
+                   maxlength="100">
+
+            <label id="nativeLanguageLabel" for="nativeLanguageInput">Your native language:</label>
+            <select id="nativeLanguageInput" name="nativeLanguageInput" required>
+                <option value="">Please select...</option>
+                <option value="Japanese">Japanese</option>
+                <option value="English">English</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <div id="otherLanguageContainer" style="display: none;">
+                <label id="otherLanguageLabel" for="otherLanguageInput" data-lang="ui.other_language_label">Please specify your language:</label>
+                <input type="text" id="otherLanguageInput" name="otherLanguageInput" 
+                       data-lang="ui.other_language_placeholder" data-lang-attr="placeholder"
+                       placeholder="Enter your native language" 
+                       maxlength="50">
+            </div>
+
+            <button type="submit" id="submitButton" class="button">Start the survey</button>
+        </form>
+
+        <div id="message" class="mt-4 text-gray-700"></div>
+    </div>
+
+    
+    <script src="./js/languageManager.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/googleApi.js"></script>
+    <script src="./js/googleSheetsService.js"></script>
+    <script src="./js/baseApp.js"></script>
+    <script src="./js/uiManager.js"></script>
+    <script src="./js/loadingManager.js"></script>
+    <script src="./js/modalManager.js"></script>
+    <script src="./js/indexApp.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movement description using onomatopoeia</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <!-- External Libraries -->
+    
+    
+</head>
+
+    
+
+    
+
+    
+<body class="bg-gray-100">
+    
+    <div class="container">
+        <!-- Header with language selector and logout button -->
+        <div class="header-controls">
+            <select id="languageSelect" class="language-dropdown">
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+            </select>
+            <button id="buttonLogout" class="button button-small">Logout</button>
+        </div>        
+        
+        <div class="input-group">
+            <p id="nameDisplay"></p>
+            <button id="continueToReasoningButton" class="button reasoning-access-button" style="display: none;">
+                Continue to Reasoning
+            </button>
+        </div>
+
+        <!-- Introduction Toggle Section -->
+        <div id="introToggleSection" class="intro-toggle-section">
+            <button id="introToggleButton" class="button">Show Introduction</button>
+            <div id="collapsibleIntro" class="intro-section" style="display: none;">
+                <div class="intro-text">
+                    <h2 id="welcomeTitle">Welcome to the Movement to Onomatopoeia Study</h2>
+                    <p>
+                        <span id="welcomeIntro">Loading...</span>
+                        <br>
+                        <span id="welcomeDescription">Loading...</span>
+                    </p>
+                    
+                    <h3 id="instructionsTitle">What you'll do:</h3>
+                    <ul id="instructionsList">
+                        <li>Loading...</li>
+                    </ul>
+
+                    <p id="noOnomatopoeia">Loading...</p>
+                    
+                    <p>
+                        <span id="aboutOnomatopoeia">Loading...</span>
+                        <strong id="intuitionEmphasis">Loading...</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video -->
+        <p id="videoTitle">Video</p>
+        <div class="video-container">
+            <video
+                id="myVideo"
+                src="videos/1.mp4" 
+                controls
+                title="point light motion"
+            >
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Video Selection Buttons -->
+        <div class="video-buttons-container">
+            <h3 id="selectVideoTitle">Select a video:</h3>
+            <div id="videoButtons" class="video-buttons">
+                <!-- Buttons will be populated here -->
+            </div>
+        </div>
+
+        <h3 id="savedOnomatopoeiaTitle">Onomatopoeia already saved for this video:</h3>
+        <p id="recordOnomatopoeia">None</p>
+        <p id="output"></p>
+
+        <div id="message" class="mt-4 text-gray-700"></div>
+
+        <!-- Onomatopoeia -->
+        <div class="input-group">
+            <div id="buttonVisibility">
+                <p id="questionText">Are there moments in this video that make you think of an onomatopoeia?</p>
+                <div class="yes-no-buttons">
+                    <button id="hasOnomatopoeiaButtonYes" class="button">Yes</button>
+                    <button id="hasOnomatopoeiaButtonNo" class="button">No</button>
+                </div>
+            </div>
+            <div id ="inputVisibility">
+                <p id="step1Text">1) Please write the onomatopoeia you are thinking of:</p>
+
+                <label id="onomatopoeiaLabel" for="onomatopoeiaInput">Onomatopoeia:</label>
+                <textarea id="onomatopoeiaInput" name="onomatopoeiaInput" placeholder="Write your onomatopoeia"></textarea>
+
+                <p id="step2Text">2) Place the cursor of the video player at where the movement that corresponds to the onomatopoeia begins and press the "Get starting time" button</p>
+                <button id="getStart" class="button">Get starting time</button>
+                <p id="startTimeLabel">Onomatopoeia Start Time:</p>
+                <p id="startDisplay">-.--</p>
+
+                <p id="step3Text">3) Place the cursor of the video player at where the movement that corresponds to the onomatopoeia ends and press the "Get ending time" button</p>
+                <button id="getEnd" class="button">Get ending time</button>
+                <p id="endTimeLabel">Onomatopoeia End Time:</p>
+                <p id="endDisplay">-.--</p>
+
+                <!-- Audio Recording Section -->
+                <div id="audioSection" class="audio-section">
+                    <p id="audioSectionTitle">4) Optional: Record audio of you pronouncing the onomatopoeia</p>
+                    <div class="audio-controls">
+                        <button id="audioRecord" class="button audio-button">Start Recording</button>
+                        <button id="audioStop" class="button audio-button" style="display: none;">Stop Recording</button>
+                        <button id="audioPlay" class="button audio-button" style="display: none;">Play Recording</button>
+                        <button id="audioDelete" class="button audio-button audio-delete" style="display: none;">Delete Recording</button>
+                    </div>
+                    <div class="audio-status">
+                        <p id="audioStatus">Ready to record</p>
+                        <div id="audioWaveform" class="audio-waveform" style="display: none;">
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                        </div>
+                    </div>
+                </div>
+    
+                <button id="saveOnomatopoeia" class="button">Save Onomatopoeia</button>
+            </div>
+        </div>
+        
+
+    </div>
+
+    <!-- Survey Completion Modal -->
+    <div id="surveyCompletion" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h2 id="surveyCompletionTitle" data-lang="survey.completion_title">Congratulations!</h2>
+            <p id="surveyCompletionText" data-lang="survey.completion_text">Well done! You have finished all the videos. Let's start the second part of the experiment.</p>
+            <div class="modal-buttons">
+                <button id="stayOnPageButton" class="button button-secondary" data-lang="survey.stay_on_page">Stay on Page</button>
+                <button id="startReasoningButton" class="button" data-lang="survey.continue_to_reasoning">Continue to Part 2</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/languageManager.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/googleApi.js"></script>
+    <script src="./js/googleSheetsService.js"></script>
+    <script src="./js/baseApp.js"></script>
+    <script src="./js/uiManager.js"></script>
+    <script src="./js/loadingManager.js"></script>
+    <script src="./js/modalManager.js"></script>
+    <script src="./js/videoManager.js"></script>
+    <script src="./js/audioRecordingService.js"></script>
+    <script src="./js/surveyApp.js"></script>
+
+        
+    
+</body>
+</html>

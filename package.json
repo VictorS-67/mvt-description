@@ -1,0 +1,24 @@
+{
+  "name": "movement-to-onomatopoeia",
+  "version": "1.0.0",
+  "description": "Web app for collecting onomatopoeia descriptions of videos with Google Sheets/Drive integration",
+  "dependencies": {
+    "google-auth-library": "^9.0.0",
+    "swiper": "^11.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "build": "mkdir -p lib && cp node_modules/swiper/swiper-bundle.min.js lib/swiper.js && cp node_modules/swiper/swiper-bundle.min.css lib/swiper.css",
+    "postinstall": "npm run build"
+  },
+  "keywords": [
+    "onomatopoeia",
+    "movement",
+    "survey",
+    "google-sheets",
+    "audio-recording"
+  ],
+  "author": "VictorS67",
+  "license": "MIT"
+}

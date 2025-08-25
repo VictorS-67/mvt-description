@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explain Your Onomatopoeia</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="./lib/swiper.css">
+    <script src="./lib/swiper.js"></script>
+    
+</head>
+
+<body class="bg-gray-100">
+    
+    <div class="container">
+        <!-- Header with language selector and logout button -->
+        <div class="header-controls">
+            <select id="languageSelect" class="language-dropdown">
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+            </select>
+            <button id="buttonLogout" class="button button-small">Logout</button>
+        </div>        
+        
+        <div class="input-group">
+            <p id="nameDisplay"></p>
+        </div>
+
+        <!-- Progress indicator -->
+        <div class="progress-section">
+            <h2 id="reasoningPageTitle" data-lang="reasoning.page_title">Explain Your Onomatopoeia</h2>
+            <p id="progressDisplay">Loading...</p>
+            
+            <!-- Introduction section -->
+            <div class="introduction-section">
+                <button id="toggleIntroduction" class="button button-secondary" data-lang="reasoning.show_introduction">Show Introduction</button>
+                <div id="introductionText" class="introduction-text" style="display: block;">
+                    <p data-lang="reasoning.introduction_text">Intro</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video -->
+        <p id="videoTitle" data-lang="reasoning.video_title">Video</p>
+        <div class="video-container">
+            <video
+                id="myVideo"
+                src="videos/1.mp4" 
+                controls
+                title="point light motion"
+            >
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Reasoning Section -->
+        <div class="reasoning-section">
+            <h3 id="reasoningSectionTitle" data-lang="reasoning.section_title">Onomatopoeia to Explain:</h3>
+            <div class="onomatopoeia-carousel-container">
+                <!-- Swiper -->
+                <div class="swiper onomatopoeia-swiper">
+                    <div class="swiper-wrapper" id="onomatopoeiaList">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                    <!-- Navigation buttons -->
+                    <div class="swiper-button-next" id="nextOnomatopoeia"></div>
+                    <div class="swiper-button-prev" id="prevOnomatopoeia"></div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination" id="onomatopoeiaCounter"></div>
+                </div>
+            </div>
+            <div id="noOnomatopoeiaMessage" class="no-onomatopoeia-message" style="display: none;">
+                <p id="noOnomatopoeiaText" data-lang="reasoning.no_onomatopoeia">No onomatopoeia found.</p>
+            </div>
+        </div>
+
+        <!-- Remove video buttons since we won't need them -->
+        <div id="message" class="mt-4 text-gray-700"></div>
+    </div>
+
+    <!-- Reasoning Completion Modal -->
+    <div id="reasoningCompletionModal" class="completion-modal" style="display: none;">
+        <div class="completion-content">
+            <h2 id="completionTitle" data-lang="reasoning.completion_title">Thank You for Your Participation!</h2>
+            <p id="completionMessage" data-lang="reasoning.completion_message">You have completed all reasoning explanations. Thank you for your valuable contribution to our research!</p>
+            <p id="completionNote" data-lang="reasoning.completion_note">You can stay on this page if you wish to review or modify any of your answers.</p>
+            <button id="stayOnPageButton" class="button" data-lang="reasoning.stay_on_page">Stay on Page</button>
+        </div>
+    </div>
+
+    <script src="./js/languageManager.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/googleApi.js"></script>
+    <script src="./js/googleSheetsService.js"></script>
+    <script src="./js/baseApp.js"></script>
+    <script src="./js/uiManager.js"></script>
+    <script src="./js/loadingManager.js"></script>
+    <script src="./js/modalManager.js"></script>
+    <script src="./js/videoManager.js"></script>
+    <script src="./js/carouselManager.js"></script>
+    <script src="./js/reasoningApp.js"></script>
+    
+</body>
+</html>

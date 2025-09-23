@@ -80,6 +80,8 @@ body {
     border-radius: var(--border-radius);
     font-size: 1rem;
     margin-bottom: var(--spacing-sm);
+    width: 100%;
+    box-sizing: border-box;
 }
 .input-group textarea {
     resize: vertical;

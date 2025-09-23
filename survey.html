@@ -32,9 +32,6 @@
         
         <div class="input-group">
             <p id="nameDisplay"></p>
-            <button id="continueToReasoningButton" class="button reasoning-access-button" style="display: none;">
-                Continue to Reasoning
-            </button>
         </div>
 
         <!-- Introduction Toggle Section -->
@@ -106,6 +103,18 @@
                 <label id="onomatopoeiaLabel" for="onomatopoeiaInput">Onomatopoeia:</label>
                 <textarea id="onomatopoeiaInput" name="onomatopoeiaInput" placeholder="Write your onomatopoeia"></textarea>
 
+                <label id="emotionLabel" for="emotionSelect" data-lang="survey.emotion_label">Emotion:</label>
+                <select id="emotionSelect" name="emotionSelect" class="emotion-dropdown">
+                    <option value="" data-lang="survey.emotion_placeholder">Select an emotion</option>
+                    <option value="joy" data-lang="survey.emotion_options.joy">Joy</option>
+                    <option value="sadness" data-lang="survey.emotion_options.sadness">Sadness</option>
+                    <option value="anger" data-lang="survey.emotion_options.anger">Anger</option>
+                    <option value="surprise" data-lang="survey.emotion_options.surprise">Surprise</option>
+                    <option value="fear" data-lang="survey.emotion_options.fear">Fear</option>
+                    <option value="disgust" data-lang="survey.emotion_options.disgust">Disgust</option>
+                    <option value="contempt" data-lang="survey.emotion_options.contempt">Contempt</option>
+                </select>
+
                 <p id="step2Text">2) Place the cursor of the video player at where the movement that corresponds to the onomatopoeia begins and press the "Get starting time" button</p>
                 <button id="getStart" class="button">Get starting time</button>
                 <p id="startTimeLabel">Onomatopoeia Start Time:</p>
@@ -148,10 +157,9 @@
     <div id="surveyCompletion" class="modal-overlay" style="display: none;">
         <div class="modal-content">
             <h2 id="surveyCompletionTitle" data-lang="survey.completion_title">Congratulations!</h2>
-            <p id="surveyCompletionText" data-lang="survey.completion_text">Well done! You have finished all the videos. Let's start the second part of the experiment.</p>
+            <p id="surveyCompletionText" data-lang="survey.completion_text">Well done! You have finished all the videos. Thank you for your participation!</p>
             <div class="modal-buttons">
-                <button id="stayOnPageButton" class="button button-secondary" data-lang="survey.stay_on_page">Stay on Page</button>
-                <button id="startReasoningButton" class="button" data-lang="survey.continue_to_reasoning">Continue to Part 2</button>
+                <button id="stayOnPageButton" class="button" data-lang="survey.stay_on_page">Stay on Page</button>
             </div>
         </div>
     </div>

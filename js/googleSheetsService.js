@@ -327,7 +327,7 @@ class GoogleSheetsService {
             answeredTimestamp: 6,
             hasAudio: 7,
             audioFileName: 8,
-            reasoning: 9
+            emotion: 9
         };
 
         return results.map(result => 
@@ -345,32 +345,12 @@ class GoogleSheetsService {
             endTime: 5,
             answeredTimestamp: 6,
             hasAudio: 7,
-            audioFileName: 8
+            audioFileName: 8,
+            emotion: 9
         };
 
         const row = this.transformObjectToRow(onomatopoeiaData, onomatopoeiaMapping);
         return await this.appendSheetData(spreadsheetId, sheetName, row);
-    }
-
-    async updateReasoning(spreadsheetId, sheetName, participantId, video, movement, startTime, endTime, reasoning) {
-        // Find the matching row
-        const data = await this.getSheetData(spreadsheetId, sheetName);
-        
-        const matchingRow = this.findRow(data, {
-            0: participantId,
-            2: video,
-            3: movement,
-            4: (value) => parseFloat(value) === parseFloat(startTime),
-            5: (value) => parseFloat(value) === parseFloat(endTime)
-        });
-
-        if (!matchingRow) {
-            throw new Error("Matching movement entry not found in sheet");
-        }
-
-        // Update the reasoning column (column J, index 9)
-        const range = `${sheetName}!J${matchingRow.rowIndex + 1}`;
-        return await this.updateSheetData(spreadsheetId, range, [[reasoning]]);
     }
 }
 

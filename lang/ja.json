@@ -79,6 +79,17 @@
         "step1_text": "1) 動作の描写を書いてください：",
         "onomatopoeia_label": "動作描写：",
         "onomatopoeia_placeholder": "動作を描写してください（例：腕が上に上がる、手が閉じる、頭が左を向く）",
+        "emotion_label": "感情：",
+        "emotion_placeholder": "感情を選択してください",
+        "emotion_options": {
+            "joy": "喜び",
+            "sadness": "悲しみ", 
+            "anger": "怒り",
+            "surprise": "驚き",
+            "fear": "恐れ",
+            "disgust": "嫌悪",
+            "contempt": "軽蔑"
+        },
         "step2_text": "2) 描写したい動作が始まる場所に動画プレーヤーのカーソルを置き、「開始時間を取得」ボタンを押してください",
         "get_start_button": "開始時間を取得",
         "start_time_label": "動作開始時間：",
@@ -112,9 +123,9 @@
         "show_introduction": "説明を表示", 
         "hide_introduction": "説明を非表示",
         "completion_title": "おめでとうございます！",
-        "completion_text": "素晴らしい！すべての動画を完了しました。実験の第2部を始めましょう。",
-        "continue_to_reasoning": "パート2に進む",
-        "continue_to_reasoning_button": "理由説明に進む",
+        "completion_text": "素晴らしい！すべての動画を完了しました。ご参加ありがとうございます！",
+        "continue_to_reasoning": "",
+        "continue_to_reasoning_button": "",
         "stay_on_page": "このページに留まる"
     },
     "tutorial": {
@@ -162,31 +173,5 @@
         "step10_title": "動画ボタンの色",
         "step10_text": "動画ボタンは進捗を示すために色が変わります：灰 = 未完了、緑 = 少なくとも一つの動作描写を保存済み、青 = 現在視聴している動画、黄 = その動画に動作描写がないと示した場合。",
         "step10_instruction": "チュートリアルが完了しました！準備ができたら「チュートリアル完了」をクリックしてください。"
-    },
-    "reasoning": {
-        "page_title": "動作描写の説明",
-        "participant_name": "参加者: ",
-        "section_title": "説明する動作描写:",
-        "video_title": "動画",
-        "show_introduction": "説明を表示",
-        "hide_introduction": "説明を非表示",
-        "introduction_text": "入力された各動作描写について理由を説明してください。テキスト入力エリアの左右の矢印を使用するか、テキスト入力エリアを左右にスワイプして描写を変更できます。「表示」ボタンを使用して、動作を注釈した動画の部分を見ることができます。",
-        "onomatopoeia_for_video": "動画{video}の動作描写：「{onomatopoeia}」",
-        "reasoning_label": "この描写を選んだ理由を説明してください：",
-        "reasoning_placeholder": "理由を説明してください（最低5文字）...",
-        "show_button": "表示",
-        "save_button": "説明を保存",
-        "saving_button": "保存中...",
-        "time_range": "{start}から{end}まで",
-        "no_onomatopoeia": "動作描写が見つかりません。",
-        "progress": "{total}の説明のうち{completed}が提供されました",
-        "success_saved": "理由が正常に保存されました！",
-        "saved_reasoning": "保存された理由: {reasoning}",
-        "error_saving": "理由の保存に失敗しました。もう一度お試しください。",
-        "error_min_characters": "説明には最低5文字を入力してください。",
-        "completion_title": "ご参加ありがとうございます！",
-        "completion_message": "すべての理由説明が完了しました。研究への貴重な貢献をありがとうございます！",
-        "completion_note": "回答を確認または修正したい場合は、このページにとどまることができます。",
-        "stay_on_page": "このページにとどまる"
     }
 }

@@ -30,6 +30,7 @@ class SurveyApp extends BaseApp {
             getEnd: DOMUtils.getElement("getEnd"),
             endDisplay: DOMUtils.getElement("endDisplay"),
             onomatopoeiaInput: DOMUtils.getElement("onomatopoeiaInput"),
+            emotionSelect: DOMUtils.getElement("emotionSelect"),
             saveOnomatopoeiaButton: DOMUtils.getElement("saveOnomatopoeia"),
             messageDisplay: DOMUtils.getElement("message"),
             recordOnomatopoeia: DOMUtils.getElement("recordOnomatopoeia"),
@@ -53,9 +54,7 @@ class SurveyApp extends BaseApp {
             audioPlay: DOMUtils.getElement("audioPlay"),
             audioDelete: DOMUtils.getElement("audioDelete"),
             audioStatus: DOMUtils.getElement("audioStatus"),
-            audioWaveform: DOMUtils.getElement("audioWaveform"),
-            // Reasoning access button
-            continueToReasoningButton: DOMUtils.getElement("continueToReasoningButton")
+            audioWaveform: DOMUtils.getElement("audioWaveform")
         };
     }
 
@@ -193,11 +192,6 @@ class SurveyApp extends BaseApp {
             this.elements.saveOnomatopoeiaButton.addEventListener('click', this.handleSaveOnomatopoeia.bind(this));
         }
 
-        // Continue to reasoning button
-        if (this.elements.continueToReasoningButton) {
-            this.elements.continueToReasoningButton.addEventListener('click', this.goToReasoningPage.bind(this));
-        }
-
         // Audio recording buttons
         this.setupAudioEventListeners();
     }
@@ -249,29 +243,6 @@ class SurveyApp extends BaseApp {
     updateParticipantDisplay() {
         // Call base class method to handle the common display logic
         super.updateParticipantDisplay();
-
-        // Check if all videos are completed and show/hide reasoning button
-        this.updateReasoningButtonVisibility();
-    }
-
-    updateReasoningButtonVisibility() {
-        if (!this.elements.continueToReasoningButton) return;
-
-        const allCompleted = this.checkAllVideosCompleted();
-        if (allCompleted) {
-            this.elements.continueToReasoningButton.style.display = 'inline-block';
-            this.elements.continueToReasoningButton.textContent = langManager.getText('survey.continue_to_reasoning');
-        } else {
-            this.elements.continueToReasoningButton.style.display = 'none';
-        }
-    }
-
-    goToReasoningPage() {
-        // Store completion state
-        localStorage.setItem("surveyCompleted", "true");
-        
-        // Redirect to reasoning page
-        // window.location.href = "reasoning.html";
     }
 
     updateAudioStatusText() {
@@ -399,6 +370,7 @@ class SurveyApp extends BaseApp {
     resetDisplayForCurrentVideo() {
         const docElts = {
             onomatopoeiaInput: this.elements.onomatopoeiaInput,
+            emotionSelect: this.elements.emotionSelect,
             startDisplay: this.elements.startDisplay,
             endDisplay: this.elements.endDisplay,
             recordOnomatopoeia: this.elements.recordOnomatopoeia,
@@ -448,7 +420,8 @@ class SurveyApp extends BaseApp {
                         startTime: "null",
                         endTime: "null",
                         answeredTimestamp: obtainDate(),
-                        hasAudio: 0
+                        hasAudio: 0,
+                        emotion: ""
                     };
 
                     await this.saveOnomatopoeia(
@@ -493,7 +466,8 @@ class SurveyApp extends BaseApp {
                 endTime: this.elements.endDisplay?.textContent || "-.--",
                 answeredTimestamp: obtainDate(),
                 hasAudio: audioState.hasRecording ? 1 : 0,
-                audioBlob: audioRecordingService.getRecordingBlob()
+                audioBlob: audioRecordingService.getRecordingBlob(),
+                emotion: this.elements.emotionSelect?.value || ""
             };
 
             // Use submitWithLoading for form submission with loading state
@@ -600,13 +574,7 @@ class SurveyApp extends BaseApp {
     // Survey-specific helper methods
     resetDisplay(currentVideoName, filteredData, docElts) {
         // Reset form inputs using uiManager
-        uiManager.resetForm(docElts, ['onomatopoeiaInput', 'startDisplay', 'endDisplay']);
-
-        // Reset visibility using uiManager
-        uiManager.updateVisibility(docElts, {
-            buttonVisibility: true,
-            inputVisibility: false
-        });
+        uiManager.resetForm(docElts, ['onomatopoeiaInput', 'emotionSelect', 'startDisplay', 'endDisplay']);
 
         // Clear messages
         if (this.elements.messageDisplay) {
@@ -616,6 +584,31 @@ class SurveyApp extends BaseApp {
         // Note: Audio recording reset is now handled in onVideoChange to prevent timing issues
 
         let recordMessage = "";
+
+        // Display existing movement data for current video
+        const relevantData = filteredData.filter(item => 
+            item["video"] === currentVideoName && item["movement"] !== "null"
+        );
+
+        if (!relevantData.length) {
+            recordMessage = langManager.getText('survey.no_saved_onomatopoeia');
+            // Show input fields immediately for videos with no descriptions
+            uiManager.updateVisibility(docElts, {
+                buttonVisibility: false,
+                inputVisibility: true
+            });
+        } else {
+            relevantData.forEach(item => {
+                const audioIcon = item["hasAudio"] === 1 ? " 🎵" : "";
+                const emotionText = item["emotion"] ? ` (${item["emotion"]})` : "";
+                recordMessage += `-"${item["movement"]}"${audioIcon}${emotionText} from ${item["startTime"]} to ${item["endTime"]};<br>`;
+            });
+            // Show question for videos with existing descriptions
+            uiManager.updateVisibility(docElts, {
+                buttonVisibility: true,
+                inputVisibility: false
+            });
+        }
 
         // Update video button completion states using VideoManager
         if (this.videoManager) {
@@ -637,20 +630,6 @@ class SurveyApp extends BaseApp {
             });
         }
 
-        // Display existing movement data for current video
-        const relevantData = filteredData.filter(item => 
-            item["video"] === currentVideoName && item["movement"] !== "null"
-        );
-
-        if (!relevantData.length) {
-            recordMessage = langManager.getText('survey.no_saved_onomatopoeia');
-        } else {
-            relevantData.forEach(item => {
-                const audioIcon = item["hasAudio"] === 1 ? " 🎵" : "";
-                recordMessage += `-"${item["movement"]}"${audioIcon} from ${item["startTime"]} to ${item["endTime"]};<br>`;
-            });
-        }
-
         if (docElts.recordOnomatopoeia) {
             docElts.recordOnomatopoeia.innerHTML = recordMessage;
         }
@@ -662,9 +641,6 @@ class SurveyApp extends BaseApp {
             docElts.questionText.textContent = langManager.getText(questionKey);
         }
 
-        // Update reasoning button visibility
-        this.updateReasoningButtonVisibility();
-        
         // Check if all videos are completed after updating button states
         this.checkAndShowCompletionModal();
     }
@@ -709,7 +685,8 @@ class SurveyApp extends BaseApp {
             endTime: parseFloat(infoDict.endTime),
             answeredTimestamp: infoDict.answeredTimestamp,
             hasAudio: infoDict.hasAudio || 0,
-            audioFileName: audioFileName || ""
+            audioFileName: audioFileName || "",
+            emotion: infoDict.emotion || ""
         };
 
         const appendResult = await googleSheetsService.saveOnomatopoeia(spreadsheetId, OnomatopoeiaSheet, onomatopoeiaData);
@@ -786,16 +763,7 @@ class SurveyApp extends BaseApp {
         modalManager.showModal('surveyCompletion', {
             onOpen: () => {
                 // Set up event listeners when modal opens (text is handled by data-lang attributes)
-                const continueButton = document.getElementById('startReasoningButton');
                 const stayButton = document.getElementById('stayOnPageButton');
-                
-                if (continueButton && !continueButton.dataset.listenerAttached) {
-                    continueButton.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        this.startReasoningPhase();
-                    });
-                    continueButton.dataset.listenerAttached = 'true';
-                }
                 
                 if (stayButton && !stayButton.dataset.listenerAttached) {
                     stayButton.addEventListener('click', (e) => {
@@ -806,17 +774,6 @@ class SurveyApp extends BaseApp {
                 }
             }
         });
-    }
-
-    startReasoningPhase() {
-        // Hide the completion modal first
-        modalManager.hideModal('surveyCompletion');
-        
-        // Store current completion state
-        localStorage.setItem("surveyCompleted", "true");
-        
-        // Redirect to reasoning page
-        //window.location.href = "reasoning.html";
     }
 
     stayOnSurveyPage() {

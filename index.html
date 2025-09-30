@@ -25,80 +25,79 @@
             </select>
         </div>        
         <form id="emailForm" class="input-group">
-            <label id="emailLabel" for="emailInput">Your email address:</label>
+            <label id="emailLabel" for="emailInput" data-lang="ui.email_label">Your email address:</label>
             <input type="email" id="emailInput"
-             name="emailInput" placeholder="Enter your email address"
+             name="emailInput" data-lang="ui.email_placeholder" data-lang-attr="placeholder" placeholder="Enter your email address"
              required>
-            <button type="submit" id="nextButton" class="button">Next</button>
+            <button type="submit" id="nextButton" class="button" data-lang="ui.next_button">Next</button>
         </form>
 
         <!-- Introductory text -->
         <div id="introSection" style="display: none;">
             <div id="introText" class="intro-text">
-                <h2 id="welcomeTitle">Welcome to the Movement to Onomatopoeia Study</h2>
+                <h2 id="welcomeTitle" data-lang="welcome.title">Welcome to the Movement Study</h2>
                 <p>
-                    <span id="welcomeIntro">Loading...</span>
+                    <span id="welcomeIntro" data-lang="welcome.introduction">Loading...</span>
                     <br>
-                    <span id="welcomeDescription">Loading...</span>
+                    <span id="welcomeDescription" data-lang="welcome.description">Loading...</span>
                 </p>
                 
-                <h3 id="instructionsTitle">What you'll do:</h3>
+                <h3 id="instructionsTitle" data-lang="instructions.title">What you'll do:</h3>
                 <ul id="instructionsList">
                     <li>Loading...</li>
                 </ul>
 
-                <p id="noOnomatopoeia">Loading...</p>
+                <p id="noOnomatopoeia" data-lang="additional_info.no_onomatopoeia">Loading...</p>
                 
                 <p>
-                    <span id="aboutOnomatopoeia">Loading...</span>
-                    <strong id="intuitionEmphasis">Loading...</strong>
+                    <span id="aboutOnomatopoeia" data-lang="additional_info.about_onomatopoeia">Loading...</span>
+                    <strong id="intuitionEmphasis" data-lang="additional_info.intuition_emphasis">Loading...</strong>
                 </p>
             </div>
         </div>
         
         <form id="participantForm" class="input-group" style="display: none;">
-            <h2 id="profileTitle">Welcome! Please complete your profile:</h2>
-            <label id="nameLabel" for="nameInput">Your name/pseudo:</label>
+            <h2 id="profileTitle" data-lang="form.profile_title">Welcome! Please complete your profile:</h2>
+            <label id="nameLabel" for="nameInput" data-lang="form.name_label">Your name/pseudo:</label>
             <input type="text" id="nameInput" name="nameInput" 
-                   placeholder="Enter your name or pseudonym" 
+                   data-lang-attr="placeholder" data-lang="form.name_placeholder"
                    required minlength="2" maxlength="50">
             
-            <label id="ageLabel" for="ageInput">Your age:</label>
+            <label id="ageLabel" for="ageInput" data-lang="form.age_label">Your age:</label>
             <input type="number" id="ageInput" name="ageInput" 
-                   placeholder="Enter your age" 
+                   data-lang-attr="placeholder" data-lang="form.age_placeholder"
                    min="1" max="120" required>
 
-            <label id="genderLabel" for="genderInput">Your gender:</label>
+            <label id="genderLabel" for="genderInput" data-lang="form.gender_label">Your gender:</label>
             <select id="genderInput" name="genderInput" required>
-                <option value="">Please select...</option>
-                <option value="Female">Female</option>
-                <option value="Male">Male</option>
-                <option value="Other">Other</option>
-                <option value="Prefer not to say">Prefer not to say</option>
+                <option value="" data-lang="form.please_select">Please select...</option>
+                <option value="Female" data-lang="form.gender_female">Female</option>
+                <option value="Male" data-lang="form.gender_male">Male</option>
+                <option value="Other" data-lang="form.gender_other">Other</option>
+                <option value="Prefer not to say" data-lang="form.gender_prefer_not">Prefer not to say</option>
             </select>
 
-            <label id="movementPracticeLabel" for="movementPracticeInput">Your movement practice (optional):</label>
+            <label id="movementPracticeLabel" for="movementPracticeInput" data-lang="form.movement_practice_label">Your movement practice (optional):</label>
             <input type="text" id="movementPracticeInput" name="movementPracticeInput" 
-                   placeholder="e.g., dance, somatics, manual therapy, movement analysis..." 
+                   data-lang-attr="placeholder" data-lang="form.movement_practice_placeholder"
                    maxlength="100">
 
-            <label id="nativeLanguageLabel" for="nativeLanguageInput">Your native language:</label>
+            <label id="nativeLanguageLabel" for="nativeLanguageInput" data-lang="form.native_language_label">Your native language:</label>
             <select id="nativeLanguageInput" name="nativeLanguageInput" required>
-                <option value="">Please select...</option>
-                <option value="Japanese">Japanese</option>
-                <option value="English">English</option>
-                <option value="Other">Other</option>
+                <option value="" data-lang="form.please_select">Please select...</option>
+                <option value="Japanese" data-lang="form.language_japanese">Japanese</option>
+                <option value="English" data-lang="form.language_english">English</option>
+                <option value="Other" data-lang="form.language_other">Other</option>
             </select>
 
             <div id="otherLanguageContainer" style="display: none;">
-                <label id="otherLanguageLabel" for="otherLanguageInput" data-lang="ui.other_language_label">Please specify your language:</label>
+                <label id="otherLanguageLabel" for="otherLanguageInput" data-lang="form.other_language_label">Please specify your language:</label>
                 <input type="text" id="otherLanguageInput" name="otherLanguageInput" 
-                       data-lang="ui.other_language_placeholder" data-lang-attr="placeholder"
-                       placeholder="Enter your native language" 
+                       data-lang-attr="placeholder" data-lang="form.other_language_placeholder"
                        maxlength="50">
             </div>
 
-            <button type="submit" id="submitButton" class="button">Start the survey</button>
+            <button type="submit" id="submitButton" class="button" data-lang="buttons.start_survey">Start the survey</button>
         </form>
 
         <div id="message" class="mt-4 text-gray-700"></div>

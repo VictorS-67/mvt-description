@@ -303,9 +303,6 @@ class SurveyApp extends BaseApp {
                 this.elements.collapsibleIntro.offsetHeight;
                 this.elements.collapsibleIntro.classList.add('expanded');
             }
-            if (this.elements.introToggleButton) {
-                this.elements.introToggleButton.textContent = langManager.getText('survey.hide_introduction');
-            }
         } else {
             // Hide introduction
             if (this.elements.collapsibleIntro) {
@@ -317,29 +314,14 @@ class SurveyApp extends BaseApp {
                     }
                 }, 200);
             }
-            if (this.elements.introToggleButton) {
-                this.elements.introToggleButton.textContent = langManager.getText('survey.show_introduction');
-            }
         }
         
-        // Update introduction content with current language
+        // Update introduction content including dynamic button text
         this.updateIntroductionContent();
     }
 
     updateIntroductionContent() {
-        // Update all introduction text elements with current language
-        if (this.elements.welcomeTitle) {
-            this.elements.welcomeTitle.textContent = langManager.getText('welcome.title');
-        }
-        if (this.elements.welcomeIntro) {
-            this.elements.welcomeIntro.textContent = langManager.getText('welcome.introduction');
-        }
-        if (this.elements.welcomeDescription) {
-            this.elements.welcomeDescription.textContent = langManager.getText('welcome.description');
-        }
-        if (this.elements.instructionsTitle) {
-            this.elements.instructionsTitle.textContent = langManager.getText('instructions.title');
-        }
+        // Handle dynamic list content (instructions steps)
         if (this.elements.instructionsList) {
             const instructions = langManager.getText('instructions.steps');
             if (Array.isArray(instructions)) {
@@ -349,17 +331,8 @@ class SurveyApp extends BaseApp {
                 this.elements.instructionsList.innerHTML = '<li>Loading instructions...</li>';
             }
         }
-        if (this.elements.noOnomatopoeia) {
-            this.elements.noOnomatopoeia.textContent = langManager.getText('additional_info.no_onomatopoeia');
-        }
-        if (this.elements.aboutOnomatopoeia) {
-            this.elements.aboutOnomatopoeia.textContent = langManager.getText('additional_info.about_onomatopoeia');
-        }
-        if (this.elements.intuitionEmphasis) {
-            this.elements.intuitionEmphasis.textContent = langManager.getText('additional_info.intuition_emphasis');
-        }
         
-        // Update button text based on current state
+        // Update dynamic button text based on current state
         if (this.elements.introToggleButton) {
             this.elements.introToggleButton.textContent = this.introExpanded ? 
                 langManager.getText('survey.hide_introduction') : 

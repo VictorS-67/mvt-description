@@ -32,7 +32,7 @@
         <div id="message" class="message"></div>
 
         <!-- Video section -->
-        <p id="videoTitle">Video: videos/1.mp4</p>
+        <p id="videoTitle" data-lang="tutorial.video_title">Video: videos/1.mp4</p>
         <div class="video-container">
             <video id="myVideo" src="videos/1.mp4" controls title="point light motion">
                 <span data-lang="ui.video_not_supported">Your browser does not support the video tag.</span>
@@ -50,7 +50,7 @@
         </div>
 
         <h3 id="savedOnomatopoeiaTitle" data-lang="survey.saved_onomatopoeia_title">Onomatopoeia already saved for this video:</h3>
-        <p id="recordOnomatopoeia">None</p>
+        <p id="recordOnomatopoeia" data-lang="tutorial.record_onomatopoeia">None</p>
         <p id="output"></p>
 
         <!-- Question and input section -->
@@ -76,7 +76,7 @@
                     Onomatopoeia:
                 </label>
                 <textarea id="onomatopoeiaInput" name="onomatopoeiaInput" 
-                         data-lang-placeholder="survey.onomatopoeia_placeholder">
+                         data-lang-attr="placeholder" data-lang="survey.onomatopoeia_placeholder">
                 </textarea>
 
                 <p id="step2Text" data-lang="survey.step2_text">2) Place the cursor of the video player at where the movement that corresponds to the onomatopoeia begins and press the "Get starting time" button</p>
@@ -84,14 +84,14 @@
                     Get starting time
                 </button>
                 <p id="startTimeLabel" data-lang="survey.start_time_label">Onomatopoeia Start Time:</p>
-                <p id="startDisplay">-.--</p>
+                <p id="startDisplay" data-lang="tutorial.time_display">-.--</p>
 
                 <p id="step3Text" data-lang="survey.step3_text">3) Place the cursor of the video player at where the movement that corresponds to the onomatopoeia ends and press the "Get ending time" button</p>
                 <button id="getEnd" class="button" data-lang="survey.get_end_button">
                     Get ending time
                 </button>
                 <p id="endTimeLabel" data-lang="survey.end_time_label">Onomatopoeia End Time:</p>
-                <p id="endDisplay">-.--</p>
+                <p id="endDisplay" data-lang="tutorial.time_display">-.--</p>
 
                 <!-- Audio Recording Section -->
                 <div id="audioSection" class="audio-section">

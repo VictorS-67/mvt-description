@@ -3,18 +3,21 @@
         "title": "Movement Description - Participant Login"
     },
     "welcome": {
-        "title": "Welcome to the Movement Description Study",
+        "title": "Welcome to the Movement Study",
         "introduction": "Thank you for agreeing to participate in this survey. As a dancer or a movement practitioner we consider you an expert and it is in this capacity that we would like you to help our research on movement description. We will be presenting you short animations (based on movement capture of actual persons). Each animation depicts an expressive whole body movement.",
-        "description": "You will watch these videos and describe the movements you observe using clear, descriptive language."
+        "description": "You will watch these videos and describe the movements you observe using onomatopoeia (sound words like 'swoosh', 'thump', 'flutter')."
     },
     "instructions": {
         "title": "What you'll do:",
         "steps": [
-            "First watch the full video.",
-            "Upon a second viewing, identify movements that you can describe clearly.",
-            "Write down your description and mark the time when it occurs (it could correspond to the entire sequence as well).",
+            "Watch the full video to see the complete movement",
+            "If you think of an onomatopoeia (sound word) for any movement, click 'Yes'", 
+            "Write the onomatopoeia and mark when it occurs in the video",
             "You can describe multiple movements in each video if you want"
-        ]
+        ],
+        "no_onomatopoeia": "It is also possible that some of the animated sequences do not evoke any specific onomatopoeia for you. This is fine too. You can watch and re-watch the video as many times as necessary before passing to the next one.",
+        "about_onomatopoeia": "Regarding onomatopoeia: these are sound words that represent movements, like 'swoosh' for flowing motions, 'thump' for heavy impacts, or 'flutter' for light, quick movements.",
+        "intuition_emphasis": "Trust your intuition! There is no right or wrong answer!"
     },
     "additional_info": {
         "no_onomatopoeia": "It is also possible that some of the animated sequences do not evoke any specific movement descriptions for you. This is fine too. You can watch and re-watch the video as many times as necessary before passing to the next one.",
@@ -28,25 +31,23 @@
         "age_label": "Your age:",
         "age_placeholder": "Enter your age",
         "gender_label": "Your gender:",
-        "gender_options": {
-            "placeholder": "Please select...",
-            "female": "Female",
-            "male": "Male",
-            "other": "Other",
-            "prefer_not_to_say": "Prefer not to say"
-        },
+        "please_select": "Please select...",
+        "gender_female": "Female",
+        "gender_male": "Male", 
+        "gender_other": "Other",
+        "gender_prefer_not": "Prefer not to say",
         "movement_practice_label": "Your movement practice (optional):",
         "movement_practice_placeholder": "e.g., dance, somatics, manual therapy, movement analysis...",
         "native_language_label": "Your native language:",
+        "language_japanese": "Japanese",
+        "language_english": "English",
+        "language_other": "Other",
         "other_language_label": "Please specify your language:",
-        "other_language_placeholder": "Enter your native language",
-        "native_language_options": {
-            "placeholder": "Please select...",
-            "japanese": "Japanese",
-            "english": "English",
-            "other": "Other"
-        },
-        "submit_button": "Start the survey"
+        "other_language_placeholder": "Enter your native language"
+    },
+    "buttons": {
+        "start": "Get Started",
+        "start_survey": "Start the survey"
     },
     "loading": {
         "initializing": "Initializing application...",
@@ -61,6 +62,8 @@
         "email_label": "Your email address:",
         "email_placeholder": "Enter your email address",
         "next_button": "Next",
+        "logout": "Logout",
+        "video_not_supported": "Your browser does not support the video tag.",
         "checking_participant": "Checking participant...",
         "creating_profile": "Creating your profile...",
         "welcome_message": "Welcome! Please read the information below and complete your profile to start.",
@@ -184,6 +187,9 @@
         "step9_instruction": "Click the 'Save Onomatopoeia' button to continue the tutorial.",
         "step10_title": "Video Button Colors",
         "step10_text": "The video buttons change color to show your progress: Grey = not yet completed. Green = you've saved at least one onomatopoeia. Blue = the current video you're watching. Yellow = you've indicated the video has no onomatopoeia.",
-        "step10_instruction": "You've completed the tutorial! Click 'Complete Tutorial' when ready."
+        "step10_instruction": "You've completed the tutorial! Click 'Complete Tutorial' when ready.",
+        "video_title": "Video:",
+        "record_onomatopoeia": "None",
+        "time_display": "-.--"
     }
 }

@@ -2,19 +2,40 @@
     "page": {
         "title": "動作描写 - 参加者ログイン"
     },
+    "ui": {
+        "email_label": "メールアドレス:",
+        "email_placeholder": "メールアドレスを入力してください",
+        "next_button": "次へ",
+        "logout": "ログアウト",
+        "video_not_supported": "お使いのブラウザはビデオタグをサポートしていません。",
+        "checking_participant": "参加者情報を確認中...",
+        "creating_profile": "プロフィールを作成中...",
+        "welcome_message": "ようこそ！以下の情報をお読みいただき、プロフィールを完成させて開始してください。",
+        "error_checking": "参加者の確認でエラーが発生しました。もう一度お試しください。",
+        "error_creating": "プロフィール作成でエラーが発生しました。もう一度お試しください。",
+        "error_invalid_email": "有効なメールアドレスを入力してください。",
+        "error_name_required": "お名前を入力してください。",
+        "error_invalid_age": "有効な年齢を入力してください（1-149）。",
+        "error_gender_required": "性別を選択してください。",
+        "error_language_required": "母語を選択してください。",
+        "error_other_language_required": "母語を指定してください。"
+    },
     "welcome": {
-        "title": "動作描写研究へようこそ",
+        "title": "動作研究へようこそ",
         "introduction": "本研究へのご協力をご承諾いただきありがとうございます。私たちは、ダンスなどのムーブメントの実践者である皆さまを、その分野におけるエキスパートだと考えており、そのような立場から、動作描写に関する本研究にご協力いただきたいと考えております。",
-        "description": "皆さまには短いアニメーション動画をご覧いただきます（モーションキャプチャーで人間のムーブメントを記録して制作したものです）。どのアニメーションでも身体全体でムーブメントが表現されています。観察した動作を明確で分かりやすい言葉で描写していただきます。"
+        "description": "皆さまには短いアニメーション動画をご覧いただき、観察した動作をオノマトペ（「サッ」「ドン」「ひらり」などの音を表す言葉）で描写していただきます。"
     },
     "instructions": {
         "title": "やっていただくこと：",
         "steps": [
-            "まずは1つの動画を最後までご覧ください。",
-            "もう一度ご覧いただく際に、明確に描写できる動作を特定してください。",
-            "その動作の描写を記録し、何秒あたりに対応するのか入力してください（対応箇所がアニメーションの全体となっても結構です）。",
-            "各動画で複数の動作を描写していただいて構いません。"
-        ]
+            "まずは1つの動画を最後までご覧ください",
+            "何かの動きでオノマトペ（音を表す言葉）を思い浮かべたら「はい」をクリック",
+            "そのオノマトペを記録し、動画の何秒あたりに対応するのか入力してください",
+            "各動画で複数の動作を描写していただいて構いません"
+        ],
+        "no_onomatopoeia": "特定のオノマトペが思い浮かばない動画もあるかもしれません。こちらもそれはそれで問題ありません。動画は何度でも再生していただいて構いません。",
+        "about_onomatopoeia": "オノマトペについて：これらは動きを表現する音の言葉です。例えば、流れるような動きには「サッ」、重い衝撃には「ドン」、軽やかで素早い動きには「ひらり」など。",
+        "intuition_emphasis": "直感を信じてください！正解も不正解もありません。"
     },
     "additional_info": {
         "no_onomatopoeia": "特定の動作描写が思い浮かばない動画もあるかもしれません。こちらもそれはそれで問題ありません。動画は何度でも再生していただいて構いません。",
@@ -28,41 +49,23 @@
         "age_label": "年齢：",
         "age_placeholder": "年齢を入力してください",
         "gender_label": "性別：",
-        "gender_options": {
-            "placeholder": "選択してください...",
-            "female": "女性",
-            "male": "男性",
-            "other": "その他",
-            "prefer_not_to_say": "回答を希望しない"
-        },
+        "please_select": "選択してください...",
+        "gender_female": "女性",
+        "gender_male": "男性",
+        "gender_other": "その他",
+        "gender_prefer_not": "回答を希望しない",
         "movement_practice_label": "ムーブメントの実践（任意）：",
         "movement_practice_placeholder": "例：ダンス、ソマティクス、マニュアルセラピー、動作分析...",
         "native_language_label": "母語：",
+        "language_japanese": "日本語",
+        "language_english": "英語",
+        "language_other": "その他",
         "other_language_label": "言語を指定してください：",
-        "other_language_placeholder": "母語を入力してください",
-        "native_language_options": {
-            "placeholder": "選択してください...",
-            "japanese": "日本語",
-            "english": "英語",
-            "other": "その他"
-        },
-        "submit_button": "調査を開始する"
+        "other_language_placeholder": "母語を入力してください"
     },
-    "ui": {
-        "email_label": "メールアドレス：",
-        "email_placeholder": "メールアドレスを入力してください",
-        "next_button": "次へ",
-        "checking_participant": "参加者情報を確認中...",
-        "creating_profile": "プロフィールを作成中...",
-        "welcome_message": "ようこそ！下記の情報をお読みいただき、プロフィールを完成させて開始してください。",
-        "error_checking": "参加者の確認でエラーが発生しました。もう一度お試しください。",
-        "error_creating": "プロフィール作成でエラーが発生しました。もう一度お試しください。",
-        "error_invalid_email": "有効なメールアドレスを入力してください。",
-        "error_name_required": "お名前を入力してください。",
-        "error_invalid_age": "有効な年齢（1-149歳）を入力してください。",
-        "error_gender_required": "性別を選択してください。",
-        "error_language_required": "母語を選択してください。",
-        "error_other_language_required": "母語を指定してください。"
+    "buttons": {
+        "start": "はじめる",
+        "start_survey": "調査を開始する"
     },
     "survey": {
         "page_title": "動作描写",
@@ -172,6 +175,9 @@
         "step9_instruction": "チュートリアルを続行するには保存ボタンをクリックしてください。",
         "step10_title": "動画ボタンの色",
         "step10_text": "動画ボタンは進捗を示すために色が変わります：灰 = 未完了、緑 = 少なくとも一つの動作描写を保存済み、青 = 現在視聴している動画、黄 = その動画に動作描写がないと示した場合。",
-        "step10_instruction": "チュートリアルが完了しました！準備ができたら「チュートリアル完了」をクリックしてください。"
+        "step10_instruction": "チュートリアルが完了しました！準備ができたら「チュートリアル完了」をクリックしてください。",
+        "video_title": "動画:",
+        "record_onomatopoeia": "なし",
+        "time_display": "-.--"
     }
 }

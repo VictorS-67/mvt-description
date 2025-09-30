@@ -27,7 +27,7 @@
                 <option value="en">English</option>
                 <option value="ja">日本語</option>
             </select>
-            <button id="buttonLogout" class="button button-small">Logout</button>
+            <button id="buttonLogout" class="button button-small" data-lang="survey.logout_button">Logout</button>
         </div>        
         
         <div class="input-group">
@@ -36,33 +36,33 @@
 
         <!-- Introduction Toggle Section -->
         <div id="introToggleSection" class="intro-toggle-section">
-            <button id="introToggleButton" class="button">Show Introduction</button>
+            <button id="introToggleButton" class="button" data-lang="survey.show_introduction">Show Introduction</button>
             <div id="collapsibleIntro" class="intro-section" style="display: none;">
                 <div class="intro-text">
-                    <h2 id="welcomeTitle">Welcome to the Movement to Onomatopoeia Study</h2>
+                    <h2 id="welcomeTitle" data-lang="welcome.title">Welcome to the Movement to Onomatopoeia Study</h2>
                     <p>
-                        <span id="welcomeIntro">Loading...</span>
+                        <span id="welcomeIntro" data-lang="welcome.introduction">Loading...</span>
                         <br>
-                        <span id="welcomeDescription">Loading...</span>
+                        <span id="welcomeDescription" data-lang="welcome.description">Loading...</span>
                     </p>
                     
-                    <h3 id="instructionsTitle">What you'll do:</h3>
+                    <h3 id="instructionsTitle" data-lang="instructions.title">What you'll do:</h3>
                     <ul id="instructionsList">
                         <li>Loading...</li>
                     </ul>
 
-                    <p id="noOnomatopoeia">Loading...</p>
+                    <p id="noOnomatopoeia" data-lang="additional_info.no_onomatopoeia">Loading...</p>
                     
                     <p>
-                        <span id="aboutOnomatopoeia">Loading...</span>
-                        <strong id="intuitionEmphasis">Loading...</strong>
+                        <span id="aboutOnomatopoeia" data-lang="additional_info.about_onomatopoeia">Loading...</span>
+                        <strong id="intuitionEmphasis" data-lang="additional_info.intuition_emphasis">Loading...</strong>
                     </p>
                 </div>
             </div>
         </div>
 
         <!-- Video -->
-        <p id="videoTitle">Video</p>
+        <p id="videoTitle" data-lang="survey.video_title">Video</p>
         <div class="video-container">
             <video
                 id="myVideo"
@@ -70,19 +70,19 @@
                 controls
                 title="point light motion"
             >
-                Your browser does not support the video tag.
+                <span data-lang="survey.browser_not_supported">Your browser does not support the video tag.</span>
             </video>
         </div>
 
         <!-- Video Selection Buttons -->
         <div class="video-buttons-container">
-            <h3 id="selectVideoTitle">Select a video:</h3>
+            <h3 id="selectVideoTitle" data-lang="survey.select_video_title">Select a video:</h3>
             <div id="videoButtons" class="video-buttons">
                 <!-- Buttons will be populated here -->
             </div>
         </div>
 
-        <h3 id="savedOnomatopoeiaTitle">Onomatopoeia already saved for this video:</h3>
+        <h3 id="savedOnomatopoeiaTitle" data-lang="survey.saved_onomatopoeia_title">Onomatopoeia already saved for this video:</h3>
         <p id="recordOnomatopoeia">None</p>
         <p id="output"></p>
 
@@ -104,41 +104,41 @@
             </select>
 
             <div id="buttonVisibility">
-                <p id="questionText">Are there moments in this video that make you think of an onomatopoeia?</p>
+                <p id="questionText" data-lang="survey.question_text">Are there moments in this video that make you think of an onomatopoeia?</p>
                 <div class="yes-no-buttons">
-                    <button id="hasOnomatopoeiaButtonYes" class="button">Yes</button>
-                    <button id="hasOnomatopoeiaButtonNo" class="button">No</button>
+                    <button id="hasOnomatopoeiaButtonYes" class="button" data-lang="survey.yes_button">Yes</button>
+                    <button id="hasOnomatopoeiaButtonNo" class="button" data-lang="survey.no_button">No</button>
                 </div>
             </div>
             <div id ="inputVisibility">
-                <p id="step1Text">1) Please write the onomatopoeia you are thinking of:</p>
+                <p id="step1Text" data-lang="survey.step1_text">1) Please write the onomatopoeia you are thinking of:</p>
 
                 <div class="input-group">
-                    <label id="onomatopoeiaLabel" for="onomatopoeiaInput">Onomatopoeia:</label>
-                    <textarea id="onomatopoeiaInput" name="onomatopoeiaInput" placeholder="Write your onomatopoeia"></textarea>
+                    <label id="onomatopoeiaLabel" for="onomatopoeiaInput" data-lang="survey.onomatopoeia_label">Onomatopoeia:</label>
+                    <textarea id="onomatopoeiaInput" name="onomatopoeiaInput" data-lang="survey.onomatopoeia_placeholder" data-lang-attr="placeholder" placeholder="Write your onomatopoeia"></textarea>
                 </div>
 
-                <p id="step2Text">2) Place the cursor of the video player at where the movement that corresponds to the onomatopoeia begins and press the "Get starting time" button</p>
-                <button id="getStart" class="button">Get starting time</button>
-                <p id="startTimeLabel">Onomatopoeia Start Time:</p>
+                <p id="step2Text" data-lang="survey.step2_text">2) Place the cursor of the video player at where the movement that corresponds to the onomatopoeia begins and press the "Get starting time" button</p>
+                <button id="getStart" class="button" data-lang="survey.get_start_button">Get starting time</button>
+                <p id="startTimeLabel" data-lang="survey.start_time_label">Onomatopoeia Start Time:</p>
                 <p id="startDisplay">-.--</p>
 
-                <p id="step3Text">3) Place the cursor of the video player at where the movement that corresponds to the onomatopoeia ends and press the "Get ending time" button</p>
-                <button id="getEnd" class="button">Get ending time</button>
-                <p id="endTimeLabel">Onomatopoeia End Time:</p>
+                <p id="step3Text" data-lang="survey.step3_text">3) Place the cursor of the video player at where the movement that corresponds to the onomatopoeia ends and press the "Get ending time" button</p>
+                <button id="getEnd" class="button" data-lang="survey.get_end_button">Get ending time</button>
+                <p id="endTimeLabel" data-lang="survey.end_time_label">Onomatopoeia End Time:</p>
                 <p id="endDisplay">-.--</p>
 
                 <!-- Audio Recording Section -->
                 <div id="audioSection" class="audio-section">
-                    <p id="audioSectionTitle">4) Optional: Record audio of you pronouncing the onomatopoeia</p>
+                    <p id="audioSectionTitle" data-lang="survey.audio_section_title">4) Optional: Record audio of you pronouncing the onomatopoeia</p>
                     <div class="audio-controls">
-                        <button id="audioRecord" class="button audio-button">Start Recording</button>
-                        <button id="audioStop" class="button audio-button" style="display: none;">Stop Recording</button>
-                        <button id="audioPlay" class="button audio-button" style="display: none;">Play Recording</button>
-                        <button id="audioDelete" class="button audio-button audio-delete" style="display: none;">Delete Recording</button>
+                        <button id="audioRecord" class="button audio-button" data-lang="survey.audio_record_button">Start Recording</button>
+                        <button id="audioStop" class="button audio-button" style="display: none;" data-lang="survey.audio_stop_button">Stop Recording</button>
+                        <button id="audioPlay" class="button audio-button" style="display: none;" data-lang="survey.audio_play_button">Play Recording</button>
+                        <button id="audioDelete" class="button audio-button audio-delete" style="display: none;" data-lang="survey.audio_delete_button">Delete Recording</button>
                     </div>
                     <div class="audio-status">
-                        <p id="audioStatus">Ready to record</p>
+                        <p id="audioStatus" data-lang="survey.audio_status_ready">Ready to record</p>
                         <div id="audioWaveform" class="audio-waveform" style="display: none;">
                             <div class="wave-bar"></div>
                             <div class="wave-bar"></div>
@@ -149,7 +149,7 @@
                     </div>
                 </div>
     
-                <button id="saveOnomatopoeia" class="button">Save Onomatopoeia</button>
+                <button id="saveOnomatopoeia" class="button" data-lang="survey.save_button">Save Onomatopoeia</button>
             </div>
         </div>
         

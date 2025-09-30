@@ -1,3 +1,7 @@
+import { DOMUtils } from './utils.js';
+import { googleSheetsService } from './googleSheetsService.js';
+import { uiManager } from './uiManager.js';
+
 // Video Management Service
 // Consolidates video loading, switching, and state management across apps
 
@@ -40,8 +44,7 @@ class VideoManager {
     async loadSelectedVideos(spreadsheetId, sheetName, videoButtonsContainer) {
         try {
             // Use GoogleSheetsService to get video data
-            const sheetsService = new GoogleSheetsService();
-            const selectedVideosData = await sheetsService.getSheetData(spreadsheetId, sheetName);
+            const selectedVideosData = await googleSheetsService.getSheetData(spreadsheetId, sheetName);
             
             if (!selectedVideosData || selectedVideosData.length === 0) {
                 throw new Error(`No data found in ${sheetName} sheet`);
@@ -231,3 +234,5 @@ class VideoManager {
         });
     }
 }
+
+export { VideoManager };

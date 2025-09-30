@@ -1,3 +1,12 @@
+import { BaseApp } from './baseApp.js';
+import { DOMUtils, ValidationUtils, obtainDate } from './utils.js';
+import { langManager } from './languageManager.js';
+import { uiManager } from './uiManager.js';
+import { googleSheetsService } from './googleSheetsService.js';
+import { audioRecordingService } from './audioRecordingService.js';
+import { uploadAudioFile } from './googleApi.js';
+import { modalManager } from './modalManager.js';
+
 // Main application logic for survey.html
 class SurveyApp extends BaseApp {
     constructor() {
@@ -214,7 +223,7 @@ class SurveyApp extends BaseApp {
                 try {
                     this.startButtonLoading(this.elements.audioRecord);
                     await audioRecordingService.startRecording();
-                } catch (error) {
+                } catch (_error) {
                     this.stopButtonLoading(this.elements.audioRecord);
                     this.showError(langManager.getText('survey.audio_start_error') || 'Failed to start recording');
                 }
@@ -226,7 +235,7 @@ class SurveyApp extends BaseApp {
                     this.startButtonLoading(this.elements.audioStop);
                     await audioRecordingService.stopRecording();
                     this.stopButtonLoading(this.elements.audioStop);
-                } catch (error) {
+                } catch (_error) {
                     this.stopButtonLoading(this.elements.audioStop);
                     this.showError(langManager.getText('survey.audio_stop_error') || 'Failed to stop recording');
                 }
@@ -782,7 +791,9 @@ class SurveyApp extends BaseApp {
 
 }
 
+export { SurveyApp };
+
 // Initialize the app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    window.surveyApp = new SurveyApp();
+    new SurveyApp();
 });

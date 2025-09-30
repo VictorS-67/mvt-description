@@ -1,3 +1,9 @@
+import { BaseApp } from './baseApp.js';
+import { DOMUtils, ValidationUtils } from './utils.js';
+import { langManager } from './languageManager.js';
+import { uiManager } from './uiManager.js';
+import { googleSheetsService } from './googleSheetsService.js';
+
 // Main application logic for index.html
 class IndexApp extends BaseApp {
     constructor() {
@@ -213,6 +219,8 @@ class IndexApp extends BaseApp {
         }
     }
 }
+
+export { IndexApp };
 
 // Initialize the app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {

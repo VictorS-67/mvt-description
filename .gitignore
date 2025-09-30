@@ -1,0 +1,31 @@
+# Node dependencies and logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build artifacts
+lib/
+dist/
+tmp/
+*.tmp
+
+# Environment + local config
+.env
+.env.*
+.env.local
+.DS_Store
+.vscode/
+
+# Coverage / test output
+coverage/
+.nyc_output/
+
+# Editor artifacts
+*.swp
+*.swo
+*.log
+
+# internal notes
+docs/

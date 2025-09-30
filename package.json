@@ -6,8 +6,11 @@
     "google-auth-library": "^9.0.0",
     "swiper": "^11.1.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^9.11.1"
+  },
   "scripts": {
+    "lint": "eslint .",
     "dev": "python3 -m http.server 8080",
     "build": "mkdir -p lib && cp node_modules/swiper/swiper-bundle.min.js lib/swiper.js && cp node_modules/swiper/swiper-bundle.min.css lib/swiper.css",
     "postinstall": "npm run build"

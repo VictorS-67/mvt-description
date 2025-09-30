@@ -1,3 +1,5 @@
+import { langManager } from './languageManager.js';
+
 // General utility functions and classes
 
 // Utility function to get current timestamp in ISO format
@@ -113,3 +115,5 @@ class DOMUtils {
         return element && element.dataset ? element.dataset[key] : null;
     }
 }
+
+export { obtainDate, ConfigManager, ValidationUtils, DOMUtils };

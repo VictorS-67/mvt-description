@@ -388,5 +388,4 @@ class ModalManager {
 // Create global modal manager instance
 const modalManager = new ModalManager();
 
-// Make it available globally
-window.modalManager = modalManager;
+export { ModalManager, modalManager };

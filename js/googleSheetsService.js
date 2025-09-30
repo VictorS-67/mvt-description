@@ -1,3 +1,6 @@
+import { getAccessToken } from './googleApi.js';
+import { obtainDate } from './utils.js';
+
 // Google Sheets Service Class
 // Consolidates all Google Sheets operations with enhanced error handling, 
 // data transformation, and batch operations
@@ -356,3 +359,5 @@ class GoogleSheetsService {
 
 // Create singleton instance
 const googleSheetsService = new GoogleSheetsService();
+
+export { GoogleSheetsService, googleSheetsService };

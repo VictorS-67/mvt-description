@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+const nodeFetch = require('node-fetch');
 
 exports.handler = async () => {
   const owner = "VictorS-67";
@@ -7,7 +7,7 @@ exports.handler = async () => {
   const fetchUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${folder}`;
 
   try {
-    const response = await fetch(fetchUrl, {
+  const response = await nodeFetch(fetchUrl, {
       headers: { Accept: "application/vnd.github.v3+json" },
     });
     if (!response.ok) {

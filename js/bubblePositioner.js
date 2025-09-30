@@ -313,3 +313,5 @@ class BubblePositioner {
         return stepPreferences[stepNumber] || ['right', 'left', 'below', 'above'];
     }
 }
+
+export { BubblePositioner };

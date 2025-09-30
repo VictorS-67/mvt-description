@@ -1,24 +1,9 @@
 class LanguageManager {
-    static instance = null;
-    
     constructor() {
-        if (LanguageManager.instance) {
-            return LanguageManager.instance;
-        }
-        
         this.currentLanguage = 'en';
         this.translations = {};
         this.elements = {};
         this.isInitialized = false;
-        
-        LanguageManager.instance = this;
-    }
-    
-    static getInstance() {
-        if (!LanguageManager.instance) {
-            LanguageManager.instance = new LanguageManager();
-        }
-        return LanguageManager.instance;
     }
 
     async loadLanguage(language) {
@@ -48,6 +33,13 @@ class LanguageManager {
         }
 
         this.updateUI();
+    }
+
+    async ensureInitialized(language = 'en') {
+        if (!this.isInitialized) {
+            await this.initialize(language);
+        }
+        return this.translations[this.currentLanguage];
     }
 
     updateUI() {
@@ -118,5 +110,6 @@ class LanguageManager {
     }
 }
 
-// Create global language manager instance using singleton
-const langManager = LanguageManager.getInstance();
+const langManager = new LanguageManager();
+
+export { LanguageManager, langManager };

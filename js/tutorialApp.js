@@ -1,3 +1,12 @@
+import { BaseApp } from './baseApp.js';
+import { DOMUtils } from './utils.js';
+import { langManager } from './languageManager.js';
+import { uiManager } from './uiManager.js';
+import { modalManager } from './modalManager.js';
+import { audioRecordingService } from './audioRecordingService.js';
+import { BubblePositioner } from './bubblePositioner.js';
+import { TutorialStepManager } from './tutorialStepManager.js';
+
 // Tutorial application logic
 class TutorialApp extends BaseApp {
     constructor() {
@@ -719,7 +728,7 @@ class TutorialApp extends BaseApp {
                 try {
                     this.startButtonLoading(this.elements.audioRecord);
                     await audioRecordingService.startRecording();
-                } catch (error) {
+                } catch (_error) {
                     this.stopButtonLoading(this.elements.audioRecord);
                     this.showError('Failed to start recording. Please try again.');
                 }
@@ -732,7 +741,7 @@ class TutorialApp extends BaseApp {
                     this.startButtonLoading(this.elements.audioStop);
                     await audioRecordingService.stopRecording();
                     this.stopButtonLoading(this.elements.audioStop);
-                } catch (error) {
+                } catch (_error) {
                     this.stopButtonLoading(this.elements.audioStop);
                     this.showError('Failed to stop recording. Please try again.');
                 }
@@ -873,7 +882,11 @@ class TutorialApp extends BaseApp {
     }
 }
 
+const initTutorialApp = () => new TutorialApp();
+
+export { TutorialApp, initTutorialApp };
+
 // Initialize the tutorial app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    window.tutorialApp = new TutorialApp();
+    initTutorialApp();
 });

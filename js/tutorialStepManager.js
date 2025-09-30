@@ -5,7 +5,6 @@
 class TutorialStepManager {
     constructor(totalSteps = 10) {
         this.totalSteps = totalSteps;
-        this.currentStep = 1;
         this.stepValidation = {};
         
         // Define step configurations with validation rules and behavior
@@ -263,3 +262,5 @@ class TutorialStepManager {
         }
     }
 }
+
+export { TutorialStepManager };

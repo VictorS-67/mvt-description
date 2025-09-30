@@ -1,3 +1,5 @@
+import { ConfigManager } from './utils.js';
+
 // Google API authentication and operations
 
 // Token cache with expiration
@@ -103,3 +105,5 @@ async function uploadAudioFile(audioBlob, participantId, participantName, videoN
         throw error;
     }
 }
+
+export { getAccessToken, uploadAudioFile };

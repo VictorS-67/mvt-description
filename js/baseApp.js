@@ -1,3 +1,9 @@
+import { langManager } from './languageManager.js';
+import { ConfigManager } from './utils.js';
+import { VideoManager } from './videoManager.js';
+import { uiManager } from './uiManager.js';
+import { LoadingManager } from './loadingManager.js';
+
 // Base Application Class
 // Common functionality shared across all app classes
 
@@ -36,7 +42,7 @@ class BaseApp {
             });
             
             // Initialize language manager and configuration in parallel
-            const [langInitialized, config] = await Promise.all([
+            const [_langInitialized, config] = await Promise.all([
                 langManager.ensureInitialized(),
                 ConfigManager.getSheetConfig()
             ]);
@@ -330,3 +336,5 @@ class BaseApp {
         // Default implementation - can be overridden
     }
 }
+
+export { BaseApp };

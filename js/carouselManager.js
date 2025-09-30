@@ -1,3 +1,5 @@
+import { uiManager } from './uiManager.js';
+
 // Carousel management service using SwiperJS
 class CarouselManager {
     constructor() {
@@ -217,5 +219,4 @@ class CarouselManager {
     }
 }
 
-// Export for use in other modules
-window.CarouselManager = CarouselManager;
+export { CarouselManager };

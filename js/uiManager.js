@@ -570,8 +570,6 @@ class UIManager {
     fadeElement(element, show, callback = null) {
         if (!element) return;
         
-        const animationId = `fade-${Date.now()}`;
-        
         // Cancel existing animation
         if (this.animationFrames.has(element)) {
             cancelAnimationFrame(this.animationFrames.get(element));
@@ -663,3 +661,5 @@ class UIManager {
 
 // Create singleton instance for global use
 const uiManager = new UIManager();
+
+export { UIManager, uiManager };

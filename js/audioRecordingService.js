@@ -198,7 +198,7 @@ class AudioRecordingService {
         if (this.state.isRecording && this.state.mediaRecorder) {
             try {
                 this.state.mediaRecorder.stop();
-            } catch (error) {
+            } catch (_error) {
                 // Silently handle stop errors during cleanup
             }
         }
@@ -207,7 +207,7 @@ class AudioRecordingService {
         if (this.state.audioUrl) {
             try {
                 URL.revokeObjectURL(this.state.audioUrl);
-            } catch (error) {
+            } catch (_error) {
                 // Silently handle URL revocation errors
             }
         }
@@ -216,7 +216,7 @@ class AudioRecordingService {
         if (this.state.mediaRecorder && this.state.mediaRecorder.stream) {
             try {
                 this.state.mediaRecorder.stream.getTracks().forEach(track => track.stop());
-            } catch (error) {
+            } catch (_error) {
                 // Silently handle track stop errors
             }
         }
@@ -277,3 +277,5 @@ class AudioRecordingService {
 
 // Create singleton instance
 const audioRecordingService = new AudioRecordingService();
+
+export { AudioRecordingService, audioRecordingService };

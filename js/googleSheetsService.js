@@ -265,9 +265,8 @@ class GoogleSheetsService {
             name: 2,
             age: 3,
             gender: 4,
-            movementPractice: 5,
-            nativeLanguage: 6,
-            registrationTimestamp: 7
+            nativeLanguage: 5,
+            registrationTimestamp: 6
         };
 
         return this.transformRowToObject(result.data, participantMapping);
@@ -296,9 +295,8 @@ class GoogleSheetsService {
             name: 2,
             age: 3,
             gender: 4,
-            movementPractice: 5,
-            nativeLanguage: 6,
-            registrationTimestamp: 7
+            nativeLanguage: 5,
+            registrationTimestamp: 6
         };
 
         const participantWithId = {

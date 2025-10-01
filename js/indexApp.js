@@ -21,7 +21,6 @@ class IndexApp extends BaseApp {
             nameInput: DOMUtils.getElement("nameInput"),
             ageInput: DOMUtils.getElement("ageInput"),
             genderInput: DOMUtils.getElement("genderInput"),
-            movementPracticeInput: DOMUtils.getElement("movementPracticeInput"),
             nativeLanguageInput: DOMUtils.getElement("nativeLanguageInput"),
             otherLanguageContainer: DOMUtils.getElement("otherLanguageContainer"),
             otherLanguageInput: DOMUtils.getElement("otherLanguageInput"),
@@ -154,7 +153,6 @@ class IndexApp extends BaseApp {
         const name = ValidationUtils.sanitizeInput(this.elements.nameInput.value);
         const age = ValidationUtils.sanitizeInput(this.elements.ageInput.value);
         const gender = this.elements.genderInput.value;
-        const movementPractice = ValidationUtils.sanitizeInput(this.elements.movementPracticeInput.value);
         const nativeLanguage = this.elements.nativeLanguageInput.value;
         const otherLanguage = ValidationUtils.sanitizeInput(this.elements.otherLanguageInput.value);
 
@@ -198,7 +196,6 @@ class IndexApp extends BaseApp {
             name,
             age: parseInt(age),
             gender,
-            movementPractice,
             nativeLanguage: finalNativeLanguage
         };
     }

@@ -54,7 +54,6 @@ class BaseApp {
             }
         });
         
-        console.log(`Auto-initialized ${Object.keys(elements).length} elements for ${this.constructor.name}`);
         return elements;
     }
     

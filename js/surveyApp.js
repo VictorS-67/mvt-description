@@ -418,7 +418,7 @@ class SurveyApp extends BaseApp {
                         infoDict,
                         this.config.spreadsheetId,
                         this.config.OnomatopoeiaSheet,
-                        this.elements.messageDisplay
+                        this.elements.message
                     );
                 },
                 langManager.getText('survey.saving') || 'Saving...'
@@ -428,7 +428,12 @@ class SurveyApp extends BaseApp {
             
         } catch (error) {
             console.error('Error saving onomatopoeia:', error);
-            this.showError(langManager.getText('survey.save_error') || 'Failed to save response');
+            // The error message was already shown by saveOnomatopoeia if it's a validation error
+            // For validation errors, don't show a second generic message
+            // For other errors (network, etc.), show a generic error
+            if (!error.isValidationError) {
+                this.showError(langManager.getText('survey.save_error') || 'Failed to save response');
+            }
         }
     }
 
@@ -591,7 +596,9 @@ class SurveyApp extends BaseApp {
             if (verbose) {
                 uiManager.showError(messageDisplay, validation.errorMessage);
             }
-            throw new Error(validation.errorMessage);
+            const error = new Error(validation.errorMessage);
+            error.isValidationError = true; // Mark as validation error
+            throw error;
         }
 
         // Handle audio upload if present
@@ -634,7 +641,9 @@ class SurveyApp extends BaseApp {
             if (verbose) {
                 uiManager.showError(messageDisplay, langManager.getText('survey.error_saving_sheet'));
             }
-            throw new Error("Failed to save to sheet");
+            const error = new Error("Failed to save to sheet");
+            error.isValidationError = true; // Mark as validation error (already shown to user)
+            throw error;
         }
 
         // Update local data

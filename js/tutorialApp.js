@@ -23,56 +23,13 @@ class TutorialApp extends BaseApp {
     }
 
     initializeElements() {
-        this.elements = {
-            // Main UI elements
-            nameDisplay: DOMUtils.getElement("nameDisplay"),
-            buttonVisibility: DOMUtils.getElement("buttonVisibility"),
-            inputVisibility: DOMUtils.getElement("inputVisibility"),
-            hasOnomatopoeiaButtonYes: DOMUtils.getElement("hasOnomatopoeiaButtonYes"),
-            hasOnomatopoeiaButtonNo: DOMUtils.getElement("hasOnomatopoeiaButtonNo"),
-            buttonLogout: DOMUtils.getElement("buttonLogout"),
-            videoTitle: DOMUtils.getElement("videoTitle"),
-            videoPlayer: DOMUtils.getElement("myVideo"),
-            videoButtons: DOMUtils.getElement('videoButtons'),
-            getStart: DOMUtils.getElement("getStart"),
-            startDisplay: DOMUtils.getElement("startDisplay"),
-            getEnd: DOMUtils.getElement("getEnd"),
-            endDisplay: DOMUtils.getElement("endDisplay"),
-            onomatopoeiaInput: DOMUtils.getElement("onomatopoeiaInput"),
-            saveOnomatopoeiaButton: DOMUtils.getElement("saveOnomatopoeia"),
-            messageDisplay: DOMUtils.getElement("message"),
-            recordOnomatopoeia: DOMUtils.getElement("recordOnomatopoeia"),
-            questionText: DOMUtils.getElement("questionText"),
-            languageSelect: DOMUtils.getElement("languageSelect"),
-            
-            // Audio elements
-            audioRecord: DOMUtils.getElement("audioRecord"),
-            audioStop: DOMUtils.getElement("audioStop"),
-            audioPlay: DOMUtils.getElement("audioPlay"),
-            audioDelete: DOMUtils.getElement("audioDelete"),
-            audioStatus: DOMUtils.getElement("audioStatus"),
-            audioWaveform: DOMUtils.getElement("audioWaveform"),
-            
-            // Tutorial elements
-            tutorialOverlay: DOMUtils.getElement("tutorialOverlay"),
-            tutorialBubble: DOMUtils.getElement("tutorialBubble"),
-            bubbleTitle: DOMUtils.getElement("bubbleTitle"),
-            bubbleText: DOMUtils.getElement("bubbleText"),
-            bubbleInstruction: DOMUtils.getElement("bubbleInstruction"),
-            bubbleNext: DOMUtils.getElement("bubbleNext"),
-            bubblePrevious: DOMUtils.getElement("bubblePrevious"),
-            progressFill: DOMUtils.getElement("progressFill"),
-            currentStep: DOMUtils.getElement("currentStep"),
-            totalSteps: DOMUtils.getElement("totalSteps"),
-            
-            // Tutorial welcome
-            tutorialWelcome: DOMUtils.getElement("tutorialWelcome"),
-            startTutorialButton: DOMUtils.getElement("startTutorialButton"),
-            
-            // Tutorial completion
-            tutorialCompletion: DOMUtils.getElement("tutorialCompletion"),
-            startSurveyButton: DOMUtils.getElement("startSurveyButton")
-        };
+        // Use automatic element initialization from BaseApp
+        super.initializeElements();
+        
+        // Add convenient aliases for backward compatibility
+        this.elements.videoPlayer = this.elements.myVideo;
+        this.elements.messageDisplay = this.elements.message;
+        this.elements.saveOnomatopoeiaButton = this.elements.saveOnomatopoeia;
     }
 
     async initializeSubclass() {

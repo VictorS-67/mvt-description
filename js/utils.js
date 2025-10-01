@@ -89,20 +89,12 @@ class ValidationUtils {
     }
 }
 
-// DOM utilities for safe element access
+// DOM utilities for safe element access and interaction
 class DOMUtils {
-    static getElement(id) {
-        const element = document.getElementById(id);
-        if (!element) {
-            console.warn(`Element with id '${id}' not found`);
-        }
-        return element;
-    }
-    
-    static getElements(selector) {
-        return document.querySelectorAll(selector);
-    }
-    
+    /**
+     * Safely click an element with null-checking
+     * @param {HTMLElement} element - Element to click
+     */
     static safeClick(element) {
         if (element && typeof element.click === 'function') {
             element.click();
@@ -111,6 +103,12 @@ class DOMUtils {
         }
     }
     
+    /**
+     * Safely get a data attribute from an element
+     * @param {HTMLElement} element - Element to get data from
+     * @param {string} key - Data attribute key (without 'data-' prefix)
+     * @returns {string|null} - Data attribute value or null
+     */
     static safeGetDataset(element, key) {
         return element && element.dataset ? element.dataset[key] : null;
     }

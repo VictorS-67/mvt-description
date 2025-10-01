@@ -1,5 +1,5 @@
 import { BaseApp } from './baseApp.js';
-import { DOMUtils, ValidationUtils } from './utils.js';
+import { ValidationUtils } from './utils.js';
 import { langManager } from './languageManager.js';
 import { uiManager } from './uiManager.js';
 import { googleSheetsService } from './googleSheetsService.js';
@@ -12,20 +12,11 @@ class IndexApp extends BaseApp {
     }
 
     initializeElements() {
-        this.elements = {
-            emailForm: DOMUtils.getElement("emailForm"),
-            participantForm: DOMUtils.getElement("participantForm"),
-            introSection: DOMUtils.getElement("introSection"),
-            languageSelect: DOMUtils.getElement("languageSelect"),
-            emailInput: DOMUtils.getElement("emailInput"),
-            nameInput: DOMUtils.getElement("nameInput"),
-            ageInput: DOMUtils.getElement("ageInput"),
-            genderInput: DOMUtils.getElement("genderInput"),
-            nativeLanguageInput: DOMUtils.getElement("nativeLanguageInput"),
-            otherLanguageContainer: DOMUtils.getElement("otherLanguageContainer"),
-            otherLanguageInput: DOMUtils.getElement("otherLanguageInput"),
-            messageDisplay: DOMUtils.getElement("message")
-        };
+        // Use automatic element initialization from BaseApp
+        super.initializeElements();
+        
+        // Add convenient aliases for backward compatibility
+        this.elements.messageDisplay = this.elements.message;
     }
 
     async initializeSubclass() {

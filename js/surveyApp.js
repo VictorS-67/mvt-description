@@ -24,46 +24,15 @@ class SurveyApp extends BaseApp {
     }
 
     initializeElements() {
-        this.elements = {
-            nameDisplay: DOMUtils.getElement("nameDisplay"),
-            buttonVisibility: DOMUtils.getElement("buttonVisibility"),
-            inputVisibility: DOMUtils.getElement("inputVisibility"),
-            hasOnomatopoeiaButtonYes: DOMUtils.getElement("hasOnomatopoeiaButtonYes"),
-            hasOnomatopoeiaButtonNo: DOMUtils.getElement("hasOnomatopoeiaButtonNo"),
-            buttonLogout: DOMUtils.getElement("buttonLogout"),
-            videoTitle: DOMUtils.getElement("videoTitle"),
-            videoPlayer: DOMUtils.getElement("myVideo"),
-            videoButtons: DOMUtils.getElement('videoButtons'),
-            getStart: DOMUtils.getElement("getStart"),
-            startDisplay: DOMUtils.getElement("startDisplay"),
-            getEnd: DOMUtils.getElement("getEnd"),
-            endDisplay: DOMUtils.getElement("endDisplay"),
-            onomatopoeiaInput: DOMUtils.getElement("onomatopoeiaInput"),
-            emotionSelect: DOMUtils.getElement("emotionSelect"),
-            saveOnomatopoeiaButton: DOMUtils.getElement("saveOnomatopoeia"),
-            messageDisplay: DOMUtils.getElement("message"),
-            recordOnomatopoeia: DOMUtils.getElement("recordOnomatopoeia"),
-            questionText: DOMUtils.getElement("questionText"),
-            languageSelect: DOMUtils.getElement("languageSelect"),
-            // Introduction toggle elements
-            introToggleButton: DOMUtils.getElement("introToggleButton"),
-            collapsibleIntro: DOMUtils.getElement("collapsibleIntro"),
-            // Introduction content elements (for language updates)
-            welcomeTitle: DOMUtils.getElement("welcomeTitle"),
-            welcomeIntro: DOMUtils.getElement("welcomeIntro"),
-            welcomeDescription: DOMUtils.getElement("welcomeDescription"),
-            instructionsTitle: DOMUtils.getElement("instructionsTitle"),
-            noOnomatopoeia: DOMUtils.getElement("noOnomatopoeia"),
-            aboutOnomatopoeia: DOMUtils.getElement("aboutOnomatopoeia"),
-            intuitionEmphasis: DOMUtils.getElement("intuitionEmphasis"),
-            // Audio elements
-            audioRecord: DOMUtils.getElement("audioRecord"),
-            audioStop: DOMUtils.getElement("audioStop"),
-            audioPlay: DOMUtils.getElement("audioPlay"),
-            audioDelete: DOMUtils.getElement("audioDelete"),
-            audioStatus: DOMUtils.getElement("audioStatus"),
-            audioWaveform: DOMUtils.getElement("audioWaveform")
-        };
+        // Use automatic element initialization from BaseApp
+        // This will automatically discover all elements with IDs in the page
+        super.initializeElements();
+        
+        // Add convenient aliases for elements with non-descriptive IDs
+        // This maintains backward compatibility with existing code
+        this.elements.videoPlayer = this.elements.myVideo;
+        this.elements.messageDisplay = this.elements.message;
+        this.elements.saveOnomatopoeiaButton = this.elements.saveOnomatopoeia;
     }
 
     async initializeSubclass() {

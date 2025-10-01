@@ -1,5 +1,8 @@
 # Movement to Onomatopoeia – AI Guide
 
+## Documentation
+- All documentation are in the `docs/` folder as markdown files.
+
 ## Core architecture
 - Plain HTML + vanilla JS; each page (`index.html`, `survey.html`, `tutorial.html`) boots its own App subclass from `js/*.js` via `<script>` tags.
 - `BaseApp` (`js/baseApp.js`) handles shared init: language load, `sheet-info.json` fetch through `ConfigManager`, loading overlays, and logout/localStorage plumbing.

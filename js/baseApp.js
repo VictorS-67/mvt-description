@@ -28,9 +28,43 @@ class BaseApp {
         this.initialize();
     }
 
-    // Abstract method - must be implemented by subclasses
+    /**
+     * Initialize elements - uses automatic discovery by default
+     * Subclasses can override to add custom logic or use manual initialization
+     */
     initializeElements() {
-        throw new Error("initializeElements() must be implemented by subclass");
+        // Automatic element initialization - discovers all elements with IDs
+        // Subclasses can override this to customize behavior
+        this.elements = this.autoInitializeElements();
+    }
+    
+    /**
+     * Automatically initialize all elements with IDs in the document
+     * @param {Array<string>} excludeIds - Optional IDs to exclude
+     * @returns {Object} - Elements object
+     */
+    autoInitializeElements(excludeIds = []) {
+        const elements = {};
+        const allElementsWithIds = document.querySelectorAll('[id]');
+        
+        allElementsWithIds.forEach(element => {
+            const id = element.id;
+            if (!excludeIds.includes(id)) {
+                elements[id] = element;
+            }
+        });
+        
+        console.log(`Auto-initialized ${Object.keys(elements).length} elements for ${this.constructor.name}`);
+        return elements;
+    }
+    
+    /**
+     * Helper method for subclasses that want to add specific elements manually
+     * while still benefiting from auto-initialization for others
+     * @param {Object} manualElements - Manually specified elements to add/override
+     */
+    addManualElements(manualElements) {
+        Object.assign(this.elements, manualElements);
     }
 
     async initialize() {
@@ -69,8 +103,9 @@ class BaseApp {
     }
 
     handleInitializationError(error) {
-        if (this.elements.messageDisplay) {
-            uiManager.showError(this.elements.messageDisplay, 'Failed to initialize application');
+        const messageEl = this.elements.messageDisplay || this.elements.message;
+        if (messageEl) {
+            uiManager.showError(messageEl, 'Failed to initialize application');
         }
     }
 
@@ -163,22 +198,25 @@ class BaseApp {
 
     // Common message clearing utility
     clearMessage() {
-        if (this.elements.messageDisplay) {
-            uiManager.clearMessage(this.elements.messageDisplay);
+        const messageEl = this.elements.messageDisplay || this.elements.message;
+        if (messageEl) {
+            uiManager.clearMessage(messageEl);
         }
     }
 
     // Common success message display
     showSuccess(message) {
-        if (this.elements.messageDisplay) {
-            uiManager.showSuccess(this.elements.messageDisplay, message);
+        const messageEl = this.elements.messageDisplay || this.elements.message;
+        if (messageEl) {
+            uiManager.showSuccess(messageEl, message);
         }
     }
 
     // Common error message display
     showError(message) {
-        if (this.elements.messageDisplay) {
-            uiManager.showError(this.elements.messageDisplay, message);
+        const messageEl = this.elements.messageDisplay || this.elements.message;
+        if (messageEl) {
+            uiManager.showError(messageEl, message);
         }
     }
     

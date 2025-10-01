@@ -53,9 +53,8 @@ class VideoManager {
             // Extract video names (skip header row if present)
             const videoNames = selectedVideosData.slice(1).map(row => row[0]).filter(name => name);
             
-            // Sort videos alphabetically and add .mp4 extension
+            // add .mp4 extension
             const videoNamesWithExtension = videoNames
-                .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
                 .map(name => `${name}.mp4`);
 
             this.createVideoButtons(videoNamesWithExtension, videoButtonsContainer);

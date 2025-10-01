@@ -112,6 +112,7 @@
         "error_enter_onomatopoeia": "Please enter your movement description.",
         "error_record_start": "Please record the start of the movement description.",
         "error_record_end": "Please record the end of the movement description.",
+        "error_select_emotion": "Please select an emotion for this movement.",
         "error_saving_general": "Something went wrong when saving the data",
         "error_saving_sheet": "Failed to save data to the sheet.",
         "success_saved": "Movement description and timing saved!",

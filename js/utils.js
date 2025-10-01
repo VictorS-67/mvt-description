@@ -78,6 +78,13 @@ class ValidationUtils {
             };
         }
         
+        if (!infoDict.emotion || infoDict.emotion.trim() === "") {
+            return {
+                isValid: false,
+                errorMessage: langManager.getText('survey.error_select_emotion')
+            };
+        }
+        
         if (!infoDict.participantId || !infoDict.video || !infoDict.answeredTimestamp) {
             return {
                 isValid: false,

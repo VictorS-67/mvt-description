@@ -112,6 +112,7 @@
         "error_enter_onomatopoeia": "動作描写を入力してください。",
         "error_record_start": "動作描写の開始時間を記録してください。",
         "error_record_end": "動作描写の終了時間を記録してください。",
+        "error_select_emotion": "この動作に対する感情を選択してください。",
         "error_saving_general": "データの保存中にエラーが発生しました",
         "error_saving_sheet": "シートへのデータ保存に失敗しました。",
         "success_saved": "動作描写とタイミングが保存されました！",

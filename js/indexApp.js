@@ -30,7 +30,6 @@ class IndexApp extends BaseApp {
     }
 
     async initializeSubclass() {
-        // IndexApp doesn't need additional async initialization beyond the base class
     }
 
     getParticipantDisplayKey() {
@@ -218,6 +217,7 @@ class IndexApp extends BaseApp {
             otherInput.value = ''; // Clear the input when hidden
         }
     }
+
 }
 
 export { IndexApp };

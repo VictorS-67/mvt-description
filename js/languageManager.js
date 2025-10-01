@@ -58,6 +58,23 @@ class LanguageManager {
      * This handles the majority of translations automatically
      */
     updateElementsWithDataLang() {
+        const listElements = document.querySelectorAll('[data-lang-list]');
+        listElements.forEach(element => {
+            const listKey = element.getAttribute('data-lang-list');
+            const translation = this.getText(listKey);
+
+            if (Array.isArray(translation)) {
+                element.innerHTML = '';
+                const fragment = document.createDocumentFragment();
+                translation.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = item;
+                    fragment.appendChild(listItem);
+                });
+                element.appendChild(fragment);
+            }
+        });
+
         const elementsWithLang = document.querySelectorAll('[data-lang]');
         
         elementsWithLang.forEach(element => {

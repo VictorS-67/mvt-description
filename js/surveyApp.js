@@ -53,7 +53,6 @@ class SurveyApp extends BaseApp {
             welcomeIntro: DOMUtils.getElement("welcomeIntro"),
             welcomeDescription: DOMUtils.getElement("welcomeDescription"),
             instructionsTitle: DOMUtils.getElement("instructionsTitle"),
-            instructionsList: DOMUtils.getElement("instructionsList"),
             noOnomatopoeia: DOMUtils.getElement("noOnomatopoeia"),
             aboutOnomatopoeia: DOMUtils.getElement("aboutOnomatopoeia"),
             intuitionEmphasis: DOMUtils.getElement("intuitionEmphasis"),
@@ -330,17 +329,6 @@ class SurveyApp extends BaseApp {
     }
 
     updateIntroductionContent() {
-        // Handle dynamic list content (instructions steps)
-        if (this.elements.instructionsList) {
-            const instructions = langManager.getText('instructions.steps');
-            if (Array.isArray(instructions)) {
-                this.elements.instructionsList.innerHTML = instructions.map(item => `<li>${item}</li>`).join('');
-            } else {
-                // Fallback if instructions is not an array
-                this.elements.instructionsList.innerHTML = '<li>Loading instructions...</li>';
-            }
-        }
-        
         // Update dynamic button text based on current state
         if (this.elements.introToggleButton) {
             this.elements.introToggleButton.textContent = this.introExpanded ? 

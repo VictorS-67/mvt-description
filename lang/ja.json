@@ -2,24 +2,6 @@
     "page": {
         "title": "動作描写 - 参加者ログイン"
     },
-    "ui": {
-        "email_label": "メールアドレス:",
-        "email_placeholder": "メールアドレスを入力してください",
-        "next_button": "次へ",
-        "logout": "ログアウト",
-        "video_not_supported": "お使いのブラウザはビデオタグをサポートしていません。",
-        "checking_participant": "参加者情報を確認中...",
-        "creating_profile": "プロフィールを作成中...",
-        "welcome_message": "ようこそ！以下の情報をお読みいただき、プロフィールを完成させて開始してください。",
-        "error_checking": "参加者の確認でエラーが発生しました。もう一度お試しください。",
-        "error_creating": "プロフィール作成でエラーが発生しました。もう一度お試しください。",
-        "error_invalid_email": "有効なメールアドレスを入力してください。",
-        "error_name_required": "お名前を入力してください。",
-        "error_invalid_age": "有効な年齢を入力してください（1-149）。",
-        "error_gender_required": "性別を選択してください。",
-        "error_language_required": "母語を選択してください。",
-        "error_other_language_required": "母語を指定してください。"
-    },
     "welcome": {
         "title": "動作研究へようこそ",
         "introduction": "本研究へのご協力をご承諾いただきありがとうございます。私たちは、ダンスなどのムーブメントの実践者である皆さまを、その分野におけるエキスパートだと考えており、そのような立場から、動作描写に関する本研究にご協力いただきたいと考えております。",
@@ -33,8 +15,8 @@
             "そのオノマトペを記録し、動画の何秒あたりに対応するのか入力してください",
             "各動画で複数の動作を描写していただいて構いません"
         ],
-        "no_onomatopoeia": "特定のオノマトペが思い浮かばない動画もあるかもしれません。こちらもそれはそれで問題ありません。動画は何度でも再生していただいて構いません。",
-        "about_onomatopoeia": "オノマトペについて：これらは動きを表現する音の言葉です。例えば、流れるような動きには「サッ」、重い衝撃には「ドン」、軽やかで素早い動きには「ひらり」など。",
+        "no_onomatopoeia": "",
+        "about_onomatopoeia": "",
         "intuition_emphasis": "直感を信じてください！正解も不正解もありません。"
     },
     "additional_info": {
@@ -66,6 +48,34 @@
     "buttons": {
         "start": "はじめる",
         "start_survey": "調査を開始する"
+    },
+        "loading": {
+        "initializing": "初期化中...",
+        "loading_videos": "動画を読み込んでいます...",
+        "loading_video": "動画を読み込んでいます...",
+        "saving": "保存中...",
+        "submitting": "送信中...",
+        "processing": "処理中...",
+        "please_wait": "お待ちください..."
+    },
+    "ui": {
+        "email_label": "メールアドレス:",
+        "email_placeholder": "メールアドレスを入力してください",
+        "next_button": "次へ",
+        "logout": "ログアウト",
+        "participant_name": "参加者：",
+        "video_not_supported": "お使いのブラウザはビデオタグをサポートしていません。",
+        "checking_participant": "参加者情報を確認中...",
+        "creating_profile": "プロフィールを作成中...",
+        "welcome_message": "ようこそ！以下の情報をお読みいただき、プロフィールを完成させて開始してください。",
+        "error_checking": "参加者の確認でエラーが発生しました。もう一度お試しください。",
+        "error_creating": "プロフィール作成でエラーが発生しました。もう一度お試しください。",
+        "error_invalid_email": "有効なメールアドレスを入力してください。",
+        "error_name_required": "お名前を入力してください。",
+        "error_invalid_age": "有効な年齢を入力してください（1-149）。",
+        "error_gender_required": "性別を選択してください。",
+        "error_language_required": "母語を選択してください。",
+        "error_other_language_required": "母語を指定してください。"
     },
     "survey": {
         "page_title": "動作描写",
@@ -123,13 +133,18 @@
         "audio_upload_error": "音声のアップロードに失敗しました。回答は音声なしで保存されました。",
         "audio_recording_error": "音声録音中にエラーが発生しました。もう一度お試しください。",
         "audio_too_large": "録音が最大サイズ（10MB）を超えています。より短いサンプルを録音してください。",
+    "loading_video": "動画を読み込んでいます...",
         "show_introduction": "説明を表示", 
         "hide_introduction": "説明を非表示",
         "completion_title": "おめでとうございます！",
         "completion_text": "素晴らしい！すべての動画を完了しました。ご参加ありがとうございます！",
-        "continue_to_reasoning": "",
-        "continue_to_reasoning_button": "",
-        "stay_on_page": "このページに留まる"
+    "saving": "保存中...",
+        "continue_to_reasoning": "推論タスクに進む",
+        "continue_to_reasoning_button": "推論タスクに進む",
+        "stay_on_page": "このページに留まる",
+        "save_error": "回答の保存に失敗しました。もう一度お試しください。",
+        "audio_start_error": "録音の開始に失敗しました。マイクを確認してください。",
+        "audio_stop_error": "録音の停止に失敗しました。もう一度お試しください。"
     },
     "tutorial": {
         "title": "チュートリアル - 動作描写の学習",

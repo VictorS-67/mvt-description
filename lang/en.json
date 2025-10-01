@@ -4,19 +4,19 @@
     },
     "welcome": {
         "title": "Welcome to the Movement Study",
-        "introduction": "Thank you for agreeing to participate in this survey. As a dancer or a movement practitioner we consider you an expert and it is in this capacity that we would like you to help our research on movement description. We will be presenting you short animations (based on movement capture of actual persons). Each animation depicts an expressive whole body movement.",
-        "description": "You will watch these videos and describe the movements you observe using onomatopoeia (sound words like 'swoosh', 'thump', 'flutter')."
+        "introduction": "Thank you for agreeing to participate in this survey. We will be presenting you short animations (based on movement capture of actual persons). Each animation depicts an expressive whole body movement.",
+        "description": "You will watch these videos and guess the emotion portrayed. Then you will describe the movements that made you think of this emotion."
     },
     "instructions": {
         "title": "What you'll do:",
         "steps": [
-            "Watch the full video to see the complete movement",
-            "If you think of an onomatopoeia (sound word) for any movement, click 'Yes'", 
-            "Write the onomatopoeia and mark when it occurs in the video",
-            "You can describe multiple movements in each video if you want"
+            "Watch the full video to see the complete movement as many times as needed.",
+            "Find the emotion that you think is best represented by the movement.",
+            "Describe the movement(s) that made you think of this emotion.",
+            "You can describe multiple movements in each video if you want."
         ],
-        "no_onomatopoeia": "It is also possible that some of the animated sequences do not evoke any specific onomatopoeia for you. This is fine too. You can watch and re-watch the video as many times as necessary before passing to the next one.",
-        "about_onomatopoeia": "Regarding onomatopoeia: these are sound words that represent movements, like 'swoosh' for flowing motions, 'thump' for heavy impacts, or 'flutter' for light, quick movements.",
+        "no_onomatopoeia": "",
+        "about_onomatopoeia": "",
         "intuition_emphasis": "Trust your intuition! There is no right or wrong answer!"
     },
     "additional_info": {
@@ -63,6 +63,7 @@
         "email_placeholder": "Enter your email address",
         "next_button": "Next",
         "logout": "Logout",
+        "participant_name": "Participant: ",
         "video_not_supported": "Your browser does not support the video tag.",
         "checking_participant": "Checking participant...",
         "creating_profile": "Creating your profile...",
@@ -132,11 +133,14 @@
         "audio_upload_error": "Failed to upload audio. Your response was saved without audio.",
         "audio_recording_error": "Error during audio recording. Please try again.",
         "audio_too_large": "Audio recording exceeds maximum size (10MB). Please record a shorter sample.",
+    "loading_video": "Loading video...",
         "show_introduction": "Show Introduction",
         "hide_introduction": "Hide Introduction",
         "completion_title": "Congratulations!",
         "completion_text": "Well done! You have finished all the videos. Thank you for your participation!",
-        "continue_to_reasoning": "",
+    "saving": "Saving...",
+        "continue_to_reasoning": "Continue to Reasoning Task",
+        "continue_to_reasoning_button": "Continue to Reasoning Task",
         "stay_on_page": "Stay on Page",
         "save_error": "Failed to save response. Please try again.",
         "audio_start_error": "Failed to start recording. Please check your microphone.",

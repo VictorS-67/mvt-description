@@ -76,9 +76,9 @@ class UIManager {
      * Display error message with auto-clear functionality
      * @param {HTMLElement} messageElement - Element to display message in
      * @param {string} message - Message text
-     * @param {number} duration - Auto-clear duration in ms (default: 5000)
+     * @param {number} duration - Auto-clear duration in ms (default: 8000)
      */
-    showError(messageElement, message, duration = 5000) {
+    showError(messageElement, message, duration = 8000) {
         this.showMessage(messageElement, message, 'error', duration);
     }
 
@@ -105,8 +105,18 @@ class UIManager {
         // Clear any existing timer for this element
         this.clearMessageTimer(messageElement);
 
+        // Add icon based on message type
+        const icons = {
+            success: '✅',
+            error: '⚠️',
+            warning: '⚠️',
+            info: 'ℹ️'
+        };
+        const icon = icons[type] || '';
+        const messageWithIcon = icon ? `${icon} ${message}` : message;
+
         // Set message content and styling
-        messageElement.textContent = message;
+        messageElement.textContent = messageWithIcon;
         messageElement.className = `message ${type}`;
         messageElement.style.display = 'block';
 

@@ -427,13 +427,13 @@ class SurveyApp extends BaseApp {
             this.resetDisplayForCurrentVideo();
             
         } catch (error) {
-            console.error('Error saving onomatopoeia:', error);
-            // The error message was already shown by saveOnomatopoeia if it's a validation error
-            // For validation errors, don't show a second generic message
-            // For other errors (network, etc.), show a generic error
+            // Only log unexpected errors to console (not validation errors)
+            // Validation errors are shown on screen, no need to clutter console
             if (!error.isValidationError) {
+                console.error('Error saving onomatopoeia:', error);
                 this.showError(langManager.getText('survey.save_error') || 'Failed to save response');
             }
+            // For validation errors: message already shown on screen, no console log needed
         }
     }
 
